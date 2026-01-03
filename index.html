@@ -1,0 +1,948 @@
+<!DOCTYPE html>
+<html class="scroll-smooth" lang="id">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Kelompok Peres - SYC 2025</title>
+    <link rel="icon" href="/image/logo.png" type="image/png">
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio"></script>
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com" rel="preconnect"/>
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700;800&amp;family=Caveat:wght@400;700&amp;display=swap" rel="stylesheet"/>
+    
+    <!-- Material Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+
+    <!-- Theme Config -->
+    <script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#ec7f13", // Sunset Orange
+                        "secondary": "#f4e4bc", // Cream Paper
+                        "background-light": "#fdfbf7",
+                        "background-dark": "#221910",
+                        "sage": "#8da399",
+                        "charcoal": "#181411",
+                    },
+                    fontFamily: {
+                        "display": ["Plus Jakarta Sans", "sans-serif"],
+                        "handwriting": ["Caveat", "cursive"],
+                    },
+                    backgroundImage: {
+                        'paper-texture': "url('https://www.transparenttextures.com/patterns/cream-paper.png')",
+                    },
+                    animation: {
+                        'float': 'float 6s ease-in-out infinite',
+                        'marquee': 'marquee 25s linear infinite',
+                        'spin-slow': 'spin 3s linear infinite', /* Animasi piringan hitam */
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-10px)' },
+                        },
+                        marquee: {
+                            '0%': { transform: 'translateX(0%)' },
+                            '100%': { transform: 'translateX(-100%)' },
+                        }
+                    }
+                },
+            },
+        }
+    </script>
+
+    <style>
+        /* Custom Scrapbook Utilities */
+        body {
+            background-color: #fdfbf7;
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ec7f13' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+        
+        .tape {
+            background-color: rgba(255, 255, 255, 0.4);
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            backdrop-filter: blur(2px);
+            border: 1px solid rgba(255,255,255,0.2);
+            position: absolute;
+            z-index: 20;
+        }
+
+        .photo-frame {
+            background: white;
+            padding: 10px 10px 30px 10px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            transition: all 0.3s ease;
+        }
+        
+        .photo-frame:hover {
+            transform: scale(1.02) rotate(0deg) !important;
+            z-index: 30;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+
+        /* Hide scrollbar for clean horizontal scroll */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+
+        /* Animation utilities */
+        .reveal-on-scroll {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
+        }
+        .reveal-on-scroll.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* View Switching Utility */
+        .view-section {
+            display: none;
+            animation: fadeIn 0.5s ease-in-out;
+        }
+        .view-section.active {
+            display: block;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Mobile Bottom Nav Styles */
+        .mobile-nav-shadow {
+            box-shadow: 0 -4px 6px -1px rgba(0, 0, 0, 0.1), 0 -2px 4px -1px rgba(0, 0, 0, 0.06);
+        }
+    </style>
+</head>
+<body class="text-charcoal antialiased overflow-x-hidden min-h-screen flex flex-col pb-20 md:pb-0">
+
+    <!-- DESKTOP NAVIGATION (Hidden on Mobile) -->
+    <header class="hidden md:block fixed top-0 z-50 w-full bg-background-light/80 backdrop-blur-md border-b border-gray-200/50">
+        <div class="max-w-7xl mx-auto px-4 md:px-8 py-4 flex items-center justify-between">
+            <div class="flex items-center gap-2 cursor-pointer" onclick="switchView('home')">
+                <span class="material-symbols-outlined text-primary text-3xl"><img src="/image/logo.png" alt="logo" width="55"></span>
+                <h2 class="text-2xl font-handwriting font-bold mt-1 text-charcoal">Peres</h2>
+            </div>
+            
+            <nav class="flex gap-8">
+                <!-- Changed href to onclick for SPA feel -->
+                <button onclick="switchView('home', 'journey')" class="font-bold text-sm hover:text-primary transition-colors">Perjalanan</button>
+                <button onclick="switchView('squad')" class="font-bold text-sm hover:text-primary transition-colors">Tim Peres</button>
+                <button onclick="switchView('home', 'memories')" class="font-bold text-sm hover:text-primary transition-colors">Kenangan</button>
+            </nav>
+
+            <!-- TOMBOL MUSIK BARU (Update: Play/Stop + Icon Disc) -->
+            <button id="music-btn-desktop" class="bg-charcoal text-white px-5 py-2 rounded-full text-sm font-bold hover:bg-primary transition-all shadow-lg flex items-center gap-2 group" onclick="toggleMusic()">
+                <span id="music-icon-desktop" class="material-symbols-outlined text-xl">album</span>
+                <span id="music-text-desktop">Play Lagu</span>
+            </button>
+        </div>
+    </header>
+
+    <!-- MOBILE TOP BAR (Logo Only) -->
+    <div class="md:hidden fixed top-0 z-50 w-full bg-background-light/90 backdrop-blur-md border-b border-gray-200/50 px-4 py-3 flex justify-center items-center shadow-sm">
+         <div class="flex items-center gap-2 cursor-pointer" onclick="switchView('home')">
+            <span class="material-symbols-outlined text-primary text-3xl"><img src="/image/logo.png" alt="logo" width="40"></span>
+            <h2 class="text-2xl font-handwriting font-bold mt-1 text-charcoal">Peres</h2>
+        </div>
+    </div>
+
+    <!-- MOBILE BOTTOM NAVIGATION -->
+    <div class="md:hidden fixed bottom-0 z-50 w-full bg-white border-t border-gray-200 mobile-nav-shadow px-6 py-3 flex justify-around items-center">
+        <!-- Home Button -->
+        <button onclick="switchView('home')" class="flex flex-col items-center gap-1 text-gray-500 hover:text-primary active:text-primary transition-colors">
+            <span class="material-symbols-outlined text-2xl">home</span>
+            <span class="text-[10px] font-bold">Home</span>
+        </button>
+        
+        <!-- SQUAD Button (Highlighted/Primary) -->
+        <button onclick="switchView('squad')" class="flex flex-col items-center gap-1 -mt-8">
+            <div class="bg-primary text-white p-3 rounded-full shadow-lg border-4 border-white flex items-center justify-center transform active:scale-95 transition-transform">
+                <span class="material-symbols-outlined text-2xl">groups</span>
+            </div>
+            <span class="text-[10px] font-bold text-primary">Tim Peres</span>
+        </button>
+
+        <!-- Music Toggle (Mobile Version) -->
+        <button onclick="toggleMusic()" class="flex flex-col items-center gap-1 text-gray-500 hover:text-primary active:text-primary transition-colors">
+            <span id="music-icon-mobile" class="material-symbols-outlined text-2xl">album</span>
+            <span id="music-text-mobile" class="text-[10px] font-bold">Play</span>
+        </button>
+    </div>
+    
+    <!-- Hidden Audio Element -->
+    <!-- Tambahkan 'autoplay' agar mencoba nyala otomatis -->
+    <audio id="audio-player" loop autoplay>
+        <source src="videoplayback.weba" type="audio/mpeg">
+    </audio>
+
+    <!-- MAIN CONTENT WRAPPER -->
+    <main class="flex-grow pt-16 md:pt-20">
+        
+        <!-- ================= HOME VIEW ================= -->
+        <div id="home-view" class="view-section active">
+            
+            <!-- 1. HERO SECTION -->
+            <section class="min-h-screen flex items-center justify-center relative overflow-hidden">
+                <!-- Decoration -->
+                <div class="absolute top-1/4 left-10 text-primary/10 rotate-12 animate-float">
+                    <span class="material-symbols-outlined text-9xl">flight</span>
+                </div>
+                
+                <div class="max-w-7xl mx-auto px-4 grid lg:grid-cols-2 gap-12 items-center w-full z-10">
+                    <!-- Text Content -->
+                    <div class="text-center lg:text-left order-2 lg:order-1">
+                        <div class="inline-block bg-primary/10 text-primary px-4 py-1 rounded-full text-xs font-bold tracking-widest uppercase mb-4">4 Hari • 3 Malam</div>
+                        <h1 class="font-handwriting text-8xl lg:text-[130px] leading-[0.8] text-primary mb-6 -rotate-2">
+                            kelompok Peres
+                        </h1>
+                        <p class="text-xl text-gray-600 mb-8 max-w-md mx-auto lg:mx-0 font-display leading-relaxed">
+                            Dari <b>asing</b> yang tak terduga hingga <b><i>sunset</i></b> yang tak terlupakan. Scrapbook digital dari asing, tawa, dan kenangan kita bersama.
+                        </p>
+                        <div class="flex gap-4 justify-center lg:justify-start">
+                            <button onclick="scrollToSection('journey')" class="bg-primary text-white px-8 py-4 rounded-xl font-bold hover:shadow-xl hover:-translate-y-1 transition-all">
+                                Mulai Kenangannya
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Hero Image Collage -->
+                    <div class="order-1 lg:order-2 relative w-full flex flex-col md:block items-center justify-center mt-8 md:mt-0 md:h-[500px]">
+                        
+                        <!-- Image 1 -->
+                        <!-- Mobile: Relative (stacked vertically), Desktop: Absolute (overlapping) -->
+                        <div class="photo-frame relative md:absolute w-60 md:-rotate-6 md:bottom-10 md:left-10 z-20 animate-float mb-8 md:mb-0" style="animation-delay: 0s;">
+                            <div class="aspect-square bg-gray-200 overflow-hidden relative">
+                                <img src="/image/buatdiawal1.jpg" class="object-cover w-full h-full" alt="Foto Candid">
+                            </div>
+                            <p class="font-handwriting text-center text-xl mt-2 text-gray-600">Fotbar</p>
+                            <div class="tape w-24 h-6 -top-3 left-10 -rotate-3"></div>
+                        </div>
+
+                        <!-- Image 2 -->
+                        <div class="photo-frame relative md:absolute w-64 md:rotate-3 md:top-10 md:right-10 z-10 animate-float mb-8 md:mb-0" style="animation-delay: 0s;">
+                            <div class="aspect-[4/5] bg-gray-200 overflow-hidden relative">
+                                <img src="/image/buatdiawal2.jpg" class="object-cover w-full h-full" alt="Foto Grup">
+                            </div>
+                            <p class="font-handwriting text-center text-xl mt-2 text-gray-600">Ciss....</p>
+                            <div class="tape w-24 h-6 -top-3 left-1/2 -translate-x-1/2 rotate-2"></div>
+                        </div>
+
+                        <!-- Image 3 (YANG DITAMBAHKAN) -->
+                        <div class="photo-frame relative md:absolute w-52 md:rotate-20 md:top-20 md:left-20 z-30 animate-float" style="animation-delay: 1.5s;">
+                            <div class="aspect-[4/3] bg-gray-200 overflow-hidden relative">
+                                <img src="/image/foto_tambahan.jpg" class="object-cover w-full h-full" alt="Foto Tambahan">
+                            </div>
+                            <p class="font-handwriting text-center text-xl mt-2 text-gray-600">Ready..</p>
+                            <div class="tape w-20 h-5 -top-3 left-1/2 -translate-x-1/2 -rotate-1"></div>
+                        </div>
+
+                    </div>
+                </div>
+                
+                <!-- Scroll Indicator (Hidden on mobile to save space) -->
+                <div class="absolute bottom-24 md:bottom-10 left-1/2 -translate-x-1/2 animate-bounce cursor-pointer hidden md:block" onclick="scrollToSection('journey')">
+                    <span class="material-symbols-outlined text-gray-400">keyboard_arrow_down</span>
+                </div>
+            </section>
+
+            <!-- 2. THE JOURNEY (TIMELINE) -->
+            <section id="journey" class="py-24 relative">
+                <div class="max-w-5xl mx-auto px-4">
+                    <h2 class="text-4xl md:text-5xl font-handwriting text-center mb-16 relative inline-block left-1/2 -translate-x-1/2">
+                        <span class="relative z-10">Garis Waktu</span>
+                        <span class="absolute bottom-1 left-0 w-full h-3 bg-sage/30 -rotate-1 z-0"></span>
+                    </h2>
+
+                    <div class="relative">
+                        <!-- Vertical Line -->
+                        <div class="absolute left-4 md:left-1/2 top-0 bottom-0 w-0.5 border-l-2 border-dashed border-gray-300 md:-ml-0.5"></div>
+
+                        <!-- Day 1 -->
+                        <div class="reveal-on-scroll relative mb-20 md:mb-32">
+                            <div class="flex flex-col md:flex-row items-center gap-8 md:gap-16">
+                                <div class="md:w-1/2 flex justify-end order-2 md:order-1">
+                                    <div class="photo-frame w-full max-w-sm -rotate-2">
+                                        <div class="aspect-video bg-gray-200 overflow-hidden">
+                                            <img src="/image/BoundingPertama.JPG" class="w-full h-full object-cover">
+                                        </div>
+                                        <div class="tape w-32 h-8 -top-4 left-1/2 -translate-x-1/2 -rotate-1"></div>
+                                    </div>
+                                </div>
+                                
+                                <!-- Marker -->
+                                <div class="absolute left-4 md:left-1/2 w-4 h-4 bg-primary rounded-full border-4 border-white shadow-sm -translate-x-1.5 md:-translate-x-2 mt-4 md:mt-0 z-10"></div>
+
+                                <div class="md:w-1/2 pl-12 md:pl-0 order-1 md:order-2 text-left">
+                                    <span class="inline-block bg-sage text-white text-xs font-bold px-3 py-1 rounded mb-2">HARI 1</span>
+                                    <h3 class="text-3xl font-handwriting font-bold mb-2">Sampai & Masih Asing</h3>
+                                    <p class="text-gray-600">Pertama kali kelompok peres bertemu nih masih malu-malu dan di foto itu adalah bounding pertama kita di SYC 2025 ini</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="reveal-on-scroll relative mb-20 md:mb-32">
+                            <div class="flex flex-col md:flex-row items-center gap-8 md:gap-16">
+                                <div class="md:w-1/2 flex justify-end order-2 md:order-1">
+                                    <div class="photo-frame w-full max-w-sm -rotate-2">
+                                        <div class="aspect-video bg-gray-200 overflow-hidden">
+                                            <img src="/image/opening.jpg" class="w-full h-full object-cover">
+                                            <img src="/image/opening1.jpg" class="w-full h-full object-cover">
+                                        </div>
+                                        <div class="tape w-32 h-8 -top-4 left-1/2 -translate-x-1/2 -rotate-1"></div>
+                                    </div>
+                                </div>
+                                
+                                <!-- Marker -->
+                                <div class="absolute left-4 md:left-1/2 w-4 h-4 bg-primary rounded-full border-4 border-white shadow-sm -translate-x-1.5 md:-translate-x-2 mt-4 md:mt-0 z-10"></div>
+
+                                <div class="md:w-1/2 pl-12 md:pl-0 order-1 md:order-2 text-left">
+                                    <h3 class="text-3xl font-handwriting font-bold mb-2">Opening & KKR 1</h3>
+                                    <p class="text-gray-600">Malam perdana kelompok peres SYC dimulai, kita praise & worship, dan mendengarkan firman Tuhan yang ngenalin kita pada satu-satunya jawaban atas hidup, pergumulan, dan masa depan kita.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Day 2 -->
+                        <div class="reveal-on-scroll relative mb-20 md:mb-32">
+                            <div class="flex flex-col md:flex-row items-center gap-8 md:gap-16">
+                                <div class="md:w-1/2 text-left md:text-right pl-12 md:pl-0 order-1">
+                                    <span class="inline-block bg-primary text-white text-xs font-bold px-3 py-1 rounded mb-2">HARI 2</span>
+                                    <h3 class="text-3xl font-handwriting font-bold mb-2">Hari Activity kita</h3>
+                                    <p class="text-gray-600">Di Day 2 kita pertama kali makan bareng, kita bisa beraktivitas bersama di hari kedua, dan mulai saling kenal dengan kelompok kita sendiri, mulai ada ikatan batin juga haha ya bebrapa orang juga sudah akrab dengan temannya.</p>
+                                </div>
+                                
+                                <!-- Marker -->
+                                <div class="absolute left-4 md:left-1/2 w-4 h-4 bg-sage rounded-full border-4 border-white shadow-sm -translate-x-1.5 md:-translate-x-2 mt-4 md:mt-0 z-10"></div>
+
+                                <div class="md:w-1/2 order-2">
+                                    <div class="photo-frame w-full max-w-sm rotate-1">
+                                        <div class="aspect-video bg-gray-200 overflow-hidden">
+                                            <img src="/image/Bounding1.png" class="w-full h-full object-cover">
+                                            <img src="/image/makan_pagi.JPG" class="w-full h-full object-cover">
+                                        </div>
+                                        <div class="tape w-32 h-8 -top-4 right-10 rotate-2"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="reveal-on-scroll relative mb-20 md:mb-32">
+                            <div class="flex flex-col md:flex-row items-center gap-8 md:gap-16">
+                                <div class="md:w-1/2 text-left md:text-right pl-12 md:pl-0 order-1">
+                                    <h3 class="text-3xl font-handwriting font-bold mb-2">SYC Talks & KKR 2</h3>
+                                    <p class="text-gray-600">Deep talk conference time bareng pembicara, kita dapat memahami tuntas isi kitab Galatia. Dapet insgiht fresh soal kasih karunia dan gimana hidup sebagai orang percaya yang sudah ditebus.</p>
+                                </div>
+                                
+                                <!-- Marker -->
+                                <div class="absolute left-4 md:left-1/2 w-4 h-4 bg-sage rounded-full border-4 border-white shadow-sm -translate-x-1.5 md:-translate-x-2 mt-4 md:mt-0 z-10"></div>
+
+                                <div class="md:w-1/2 order-2">
+                                    <div class="photo-frame w-full max-w-sm rotate-1">
+                                        <div class="aspect-video bg-gray-200 overflow-hidden">
+                                            <img src="/image/pembicaraKKR2.JPG" class="w-full h-full object-cover">
+                                            <img src="/image/talkday2.JPG" class="w-full h-full object-cover">
+                                        </div>
+                                        <div class="tape w-32 h-8 -top-4 right-10 rotate-2"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="reveal-on-scroll relative mb-20 md:mb-32">
+                            <div class="flex flex-col md:flex-row items-center gap-8 md:gap-16">
+                                <div class="md:w-1/2 text-left md:text-right pl-12 md:pl-0 order-1">
+                                    <h3 class="text-3xl font-handwriting font-bold mb-2">Re-connect</h3>
+                                    <p class="text-gray-600">Deep talk conference time bareng pembicara, kita dapat memahami tuntas isi kitab Galatia. Dapet insgiht fresh soal kasih karunia dan gimana hidup sebagai orang percaya yang sudah ditebus.</p>
+                                </div>
+                                
+                                <!-- Marker -->
+                                <div class="absolute left-4 md:left-1/2 w-4 h-4 bg-sage rounded-full border-4 border-white shadow-sm -translate-x-1.5 md:-translate-x-2 mt-4 md:mt-0 z-10"></div>
+
+                                <div class="md:w-1/2 order-2">
+                                    <div class="photo-frame w-full max-w-sm rotate-1">
+                                        <div class="aspect-video bg-gray-200 overflow-hidden">
+                                            <img src="/image/newyear1.jpg" class="w-full h-full object-cover">
+                                            <img src="/image/newyear2.jpg" class="w-full h-full object-cover">
+                                            <img src="/image/kezia_NY.JPG" class="w-full h-full object-cover">
+                                        </div>
+                                        <div class="tape w-32 h-8 -top-4 right-10 rotate-2"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Day 3 -->
+                        <div class="reveal-on-scroll relative mb-12">
+                            <div class="flex flex-col md:flex-row items-center gap-8 md:gap-16">
+                                <div class="md:w-1/2 flex justify-end order-2 md:order-1">
+                                    <div class="photo-frame w-full max-w-sm -rotate-2">
+                                        <div class="aspect-video bg-gray-200 overflow-hidden">
+                                            <img src="/image/morning.JPG" class="w-full h-full object-cover">
+                                        </div>
+                                        <div class="tape w-32 h-8 -top-4 left-10 -rotate-1"></div>
+                                    </div>
+                                </div>
+                                
+                                <div class="absolute left-4 md:left-1/2 w-4 h-4 bg-primary rounded-full border-4 border-white shadow-sm -translate-x-1.5 md:-translate-x-2 mt-4 md:mt-0 z-10"></div>
+
+                                <div class="md:w-1/2 pl-12 md:pl-0 order-1 md:order-2 text-left">
+                                    <span class="inline-block bg-charcoal text-white text-xs font-bold px-3 py-1 rounded mb-2">HARI 3</span>
+                                    <h3 class="text-3xl font-handwriting font-bold mb-2">Morning Devotion</h3>
+                                    <p class="text-gray-600">Hari pertama di tahun yang baru dimulai dengan merenungkan firman Tuhan bareng kelompok Peres. Small but powerful moment buat mulai 2026 dengan berjalan bersama Tuhan.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Day 3 -->
+                        <div class="reveal-on-scroll relative mb-12">
+                            <div class="flex flex-col md:flex-row items-center gap-8 md:gap-16">
+                                <div class="md:w-1/2 flex justify-end order-2 md:order-1">
+                                    <div class="photo-frame w-full max-w-sm -rotate-2">
+                                        <div class="aspect-video bg-gray-200 overflow-hidden">
+                                            <img src="/image/kkr2.JPG" class="w-full h-full object-cover">
+                                            <img src="/image/pembicaraKKR3.jpg" class="w-full h-full object-cover">
+                                        </div>
+                                        <div class="tape w-32 h-8 -top-4 left-10 -rotate-1"></div>
+                                    </div>
+                                </div>
+                                
+                                <div class="absolute left-4 md:left-1/2 w-4 h-4 bg-primary rounded-full border-4 border-white shadow-sm -translate-x-1.5 md:-translate-x-2 mt-4 md:mt-0 z-10"></div>
+
+                                <div class="md:w-1/2 pl-12 md:pl-0 order-1 md:order-2 text-left">
+                                    <h3 class="text-3xl font-handwriting font-bold mb-2">KKR Ke 3 & SYC Talks</h3>
+                                    <p class="text-gray-600">Puncak KKR malam ini kita bareng-bareng masuk dalam praise & worship, dengar firman Tuhan, dan diingatkan bagaimana Gen Z yang udah ditebus bisa hidup relevan & jadi berkat di dunia sekarang.</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Day 4 -->
+                        <div class="reveal-on-scroll relative mb-20 md:mb-32">
+                            <div class="flex flex-col md:flex-row items-center gap-8 md:gap-16">
+                                <div class="md:w-1/2 text-left md:text-right pl-12 md:pl-0 order-1">
+                                    <span class="inline-block bg-primary text-white text-xs font-bold px-3 py-1 rounded mb-2">HARI 4</span>
+                                    <h3 class="text-3xl font-handwriting font-bold mb-2">Bye Guyss!</h3>
+                                    <p class="text-gray-600">Penutupan SYc 2025 adalah recap perjalanan kita & remainder bahwa cerita penebusan Kristus adalah cerita terbaik yang patut kita bagikan. </p>
+                                </div>
+                                
+                                <!-- Marker -->
+                                <div class="absolute left-4 md:left-1/2 w-4 h-4 bg-sage rounded-full border-4 border-white shadow-sm -translate-x-1.5 md:-translate-x-2 mt-4 md:mt-0 z-10"></div>
+
+                                <div class="md:w-1/2 order-2">
+                                    <div class="photo-frame w-full max-w-sm rotate-1">
+                                        <div class="aspect-video bg-gray-200 overflow-hidden">
+                                            <img src="/image/closing1.JPG" class="w-full h-full object-cover">
+                                            <img src="/image/closing_peres.jpg" class="w-full h-full object-cover">
+                                        </div>
+                                        <div class="tape w-32 h-8 -top-4 right-10 rotate-2"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+
+            <!-- 4. MEMORY WALL (MARQUEE & MASONRY) -->
+            <section id="memories" class="py-16 overflow-hidden">
+                
+                <!-- Marquee Text -->
+                <div class="bg-primary text-white py-4 rotate-1 scale-105 mb-16 shadow-lg border-y-4 border-white border-dashed">
+                    <div class="whitespace-nowrap overflow-hidden flex">
+                        <div class="animate-marquee flex gap-8 font-bold text-2xl font-display uppercase tracking-widest">
+                            <span>• Paketu Peres</span>
+                            <span>• Buketu Peres</span>
+                            <span>• Lagu Dashyat by Justin</span>
+                            <span>• PERES SELAMANYA</span>
+                            <span>• "Jam berapa bangun?" "Siang aja"</span>
+                            <span>• WOIII GAIS GW IZIN TLT YA MAKANNY 😭 ada panggilan alam</span>
+                            <span>• "Duduk Dimana?"</span>
+                            <span>• Besok Ngapain Ko?</span>
+                            <span>• Guys Ayo Kumpul makan</span>
+                            <span>• Alaram Nyo WOII</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="max-w-7xl mx-auto px-4">
+                    <div class="columns-1 md:columns-2 lg:columns-3 gap-8 space-y-8">
+                        <!-- Polaroid 1 (Original) -->
+                        <div class="break-inside-avoid photo-frame rotate-2">
+                            <img src="/gambar/bau.jpg" class="w-full mb-4">
+                            <p class="font-handwriting text-xl text-center">Gosok Gigi Dulu, baru ngomong.</p>
+                        </div>
+                        
+                        <!-- Design 2: Extra Tilted with Sticker -->
+                        <div class="break-inside-avoid photo-frame -rotate-6 relative mt-8">
+                            <div class="absolute -top-4 -right-4 w-12 h-12 bg-red-500 rounded-full flex items-center justify-center text-white font-bold transform rotate-12 shadow-md z-10 text-xs text-center p-1">TOP<br>MOMENT</div>
+                            <img src="/gambar/bulet.jpg" class="w-full mb-4 grayscale hover:grayscale-0 transition-all duration-500">
+                            <p class="font-handwriting text-xl text-center">Eh Guys foto di sini dulu yukk.</p>
+                            <div class="tape w-24 h-6 -bottom-3 left-1/2 -translate-x-1/2 rotate-1"></div>
+                        </div>
+                        
+                        <!-- Design 3: Sticky Note Style -->
+                        <div class="break-inside-avoid bg-yellow-100 p-6 shadow-md -rotate-2 relative">
+                            <div class="absolute -top-3 left-1/2 -translate-x-1/2 w-16 h-4 bg-red-400/50"></div>
+                            <p class="font-handwriting text-2xl leading-tight text-center">"Jesus redeem my lift, He had <b>peres peres</b> <br>our <i>sins</i>" Peres - SYC 25</p>
+                        </div>
+
+                        <!-- Design 4: Square Crop with Wide Border -->
+                        <div class="break-inside-avoid photo-frame rotate-3 p-6 pb-12 bg-white">
+                            <div class="aspect-square overflow-hidden bg-gray-100 mb-2">
+                                <img src="/image/tahunbaru.jpg" class="w-full h-full object-cover">
+                            </div>
+                            <p class="font-handwriting text-2xl text-center text-primary mt-2">Tahun Baru di SYC ✨</p>
+                        </div>
+
+                        <!-- Design 5: Polaroid with 'Washi Tape' Corners -->
+                        <div class="break-inside-avoid bg-white p-4 shadow-lg rotate-1 relative">
+                            <!-- Washi Tape Corners -->
+                            <div class="absolute -top-2 -left-2 w-8 h-8 bg-blue-200/50 -rotate-45"></div>
+                            <div class="absolute -bottom-2 -right-2 w-8 h-8 bg-blue-200/50 -rotate-45"></div>
+                            
+                            <img src="/gambar/pakbu.jpg" class="w-full mb-4 border-4 border-gray-100">
+                            <p class="font-handwriting text-xl text-center">Pakketu dan Buketu Peres</p>
+                        </div>
+                        
+                        <!-- Design 6: Ticket Stub Decor -->
+                        <div class="break-inside-avoid bg-white border-2 border-dashed border-gray-300 p-4 relative rotate-3">
+                            <div class="flex justify-between items-center border-b border-gray-200 pb-2 mb-2">
+                                <span class="font-bold text-gray-400">BOARDING PASS</span>
+                                <span class="material-symbols-outlined text-gray-400">flight_takeoff</span>
+                            </div>
+                            <div class="flex justify-between font-display font-bold text-2xl">
+                                <span>SAAT</span>
+                                <span class="text-gray-300">✈</span>
+                                <span>RUMAH</span>
+                            </div>
+                            <div class="mt-2 text-xs text-gray-400 font-mono text-center">PASSENGER: TIM PERES</div>
+                        </div>
+
+                        <!-- Design 7: Black Frame (Film Strip Vibe) -->
+                        <div class="break-inside-avoid bg-black p-4 rotate-2 shadow-xl">
+                            <img src="/gambar/boys.jpg" class="w-full border border-gray-800 opacity-90 hover:opacity-100 transition-opacity">
+                            <p class="font-handwriting text-white text-lg text-center mt-3">Boys Peres</p>
+                        </div>
+
+                        <!-- Design 8: Postcard Style -->
+                        <div class="break-inside-avoid bg-white p-6 shadow-md -rotate-1 border border-gray-200">
+                            <div class="flex justify-between items-start mb-4">
+                                <div class="w-2/3 pr-2">
+                                    <p class="font-handwriting text-lg leading-snug">"Dear future us, jangan lupa momen ini ya. Seru banget gila!"</p>
+                                </div>
+                                <div class="w-16 h-20 border border-gray-300 flex items-center justify-center bg-gray-50">
+                                    <span class="text-[10px] text-gray-400">STAMP</span>
+                                </div>
+                            </div>
+                            <div class="border-t border-gray-200 pt-2">
+                                <p class="text-xs text-gray-400 uppercase tracking-widest text-right">FROM: SYC 2025</p>
+                            </div>
+                        </div>
+
+                        <!-- Design 9: Two Small Photos Stacked -->
+                        <div class="break-inside-avoid relative h-64 w-full">
+                            <div class="absolute top-0 left-0 w-40 bg-white p-2 shadow-md -rotate-6 z-10 photo-frame">
+                                <img src="/gambar/four.jpg" class="w-full aspect-square object-cover">
+                                <p class="text-center font-handwriting text-sm">Fantastic Four</p>
+                            </div>
+                            <div class="absolute bottom-0 right-0 w-44 bg-white p-2 shadow-md rotate-6 z-20 photo-frame">
+                                <img src="/gambar/p.jpg" class="w-full aspect-square object-cover">
+                                <p class="text-center font-handwriting text-sm">Chaos! "P"</p>
+                            </div>
+                        </div>
+
+                        <!-- Design 10: Ripped Paper Effect -->
+                        <div class="break-inside-avoid relative p-4 bg-white shadow-lg rotate-1 overflow-hidden group">
+                            <div class="absolute top-0 left-0 w-full h-2 bg-gray-100" style="clip-path: polygon(0% 0%, 5% 100%, 10% 0%, 15% 100%, 20% 0%, 25% 100%, 30% 0%, 35% 100%, 40% 0%, 45% 100%, 50% 0%, 55% 100%, 60% 0%, 65% 100%, 70% 0%, 75% 100%, 80% 0%, 85% 100%, 90% 0%, 95% 100%, 100% 0%);"></div>
+                            <img src="/gambar/izin.jpg" class="w-full mt-2 filter sepia(0.3) group-hover:sepia(0) transition-all">
+                            <p class="font-handwriting text-center mt-2 text-xl">Iziin~</p>
+                        </div>
+
+                        <!-- Design 11: Note with Paperclip -->
+                        <div class="break-inside-avoid bg-blue-50 p-6 shadow-sm rotate-2 relative border-l-4 border-blue-200">
+                            <span class="material-symbols-outlined absolute -top-3 right-4 text-gray-400 text-3xl transform rotate-45">attachment</span>
+                            <h4 class="font-bold text-blue-800 mb-2 font-display">Quotes of the Day:</h4>
+                            <p class="font-handwriting text-xl text-blue-900">"Makan bang, jangan wacana doang."</p>
+                        </div>
+
+                        <!-- Design 12: Minimalist Clean Frame -->
+                        <div class="break-inside-avoid bg-white p-8 shadow-2xl -rotate-1">
+                            <img src="/gambar/girl_peres.jpg" class="w-full shadow-inner">
+                            <div class="mt-6 flex justify-between items-center">
+                                <p class="font-sans text-xs font-bold tracking-widest text-gray-400">Girls Peres</p>
+                                <span class="material-symbols-outlined text-red-400 text-sm">favorite</span>
+                            </div>
+                        </div>
+
+                        <!-- Design 13: Instant Photo Strip (UPDATED with 3 strips) -->
+                        <div class="break-inside-avoid relative h-96 w-full p-2">
+                            <!-- Strip 1 (Left) -->
+                            <div class="absolute top-12 -left-2 bg-gray-900 p-2 shadow-lg -rotate-12 z-10 w-28">
+                                <img src="/gambar/k1.jpg" class="w-full aspect-[3/2] object-cover border-2 border-white mb-2">
+                                <img src="/gambar/ACT.jpg" class="w-full aspect-[3/2] object-cover border-2 border-white mb-2">
+                                <img src="/gambar/domba.jpg" class="w-full aspect-[3/2] object-cover border-2 border-white">
+                            </div>
+                            <!-- Strip 2 (Center) -->
+                            <div class="absolute top-0 left-1/2 -translate-x-1/2 bg-gray-900 p-2 shadow-2xl rotate-2 z-30 w-32">
+                                <img src="/gambar/piting1.jpg" class="w-full aspect-[3/2] object-cover border-2 border-white mb-2">
+                                <img src="/gambar/piting2.jpg" class="w-full aspect-[3/2] object-cover border-2 border-white mb-2">
+                                <img src="/gambar/piting3.jpg" class="w-full aspect-[3/2] object-cover border-2 border-white">
+                                <p class="text-white text-center font-handwriting text-xs pt-1">Photobooth!</p>
+                            </div>
+                            <!-- Strip 3 (Right) -->
+                            <div class="absolute top-8 -right-2 bg-gray-900 p-2 shadow-lg rotate-12 z-20 w-28">
+                                <img src="/gambar/l.jpg" class="w-full aspect-[3/2] object-cover border-2 border-white mb-2">
+                                <img src="/gambar/nametag.jpg" class="w-full aspect-[3/2] object-cover border-2 border-white mb-2">
+                                <img src="/gambar/k2.jpg" class="w-full aspect-[3/2] object-cover border-2 border-white">
+                            </div>
+                        </div>
+
+                        <!-- Design 14: Overexposed Flash Look -->
+                        <div class="break-inside-avoid photo-frame rotate-3 relative">
+                            <div class="absolute inset-0 bg-gradient-to-tr from-white/40 to-transparent pointer-events-none z-10"></div>
+                            <img src="/gambar/dahsyat.png" class="w-full contrast-125 brightness-110">
+                            <p class="font-handwriting text-center mt-2">Dahsyat By justin</p>
+                        </div>
+
+                        <!-- Design 15: Map Fragment (UPDATED with Real Map Look & Photo) -->
+                        <div class="break-inside-avoid bg-white p-2 shadow-md -rotate-2 border-4 border-white">
+                            <div class="w-full h-56 bg-blue-50 relative overflow-hidden rounded-sm group">
+                                <!-- Map Image -->
+                                <img src="/gambar/maps.png" class="w-full h-full object-cover opacity-90 group-hover:scale-110 transition-transform duration-700" alt="Map Location">
+                                
+                                <!-- Overlay Photo on Map -->
+                                <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-white p-1.5 shadow-xl rotate-3 w-24">
+                                    <img src="/gambar/saat.jpg" class="w-full aspect-square object-cover">
+                                </div>
+                                
+                                <!-- Pin Icon -->
+                                <span class="material-symbols-outlined absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-16 text-red-600 text-4xl drop-shadow-md animate-bounce">location_on</span>
+                            </div>
+                            <p class="font-handwriting text-center mt-3 text-lg font-bold text-gray-700">We were here!</p>
+                        </div>
+
+                        <!-- Design 16: Doodle Frame -->
+                        <div class="break-inside-avoid p-1 bg-white shadow-lg rotate-1 relative">
+                            <svg class="absolute inset-0 w-full h-full text-primary pointer-events-none" style="z-index: 20;">
+                                <rect x="5" y="5" width="97%" height="97%" fill="none" stroke="currentColor" stroke-width="2" stroke-dasharray="10 5" stroke-linecap="round"></rect>
+                            </svg>
+                            <div class="p-4">
+                                <img src="/gambar/smngt.png" class="w-full">
+                                <p class="font-handwriting text-center mt-3 font-bold">Semangat Untuk darrel dan mimi ikut lagi tahun ini!</p>
+                            </div>
+                        </div>
+
+                        <!-- Design 17: "Do Not Forget" Tag -->
+                        <div class="break-inside-avoid bg-red-50 p-4 shadow-md rotate-2 border-l-8 border-red-500">
+                            <h3 class="font-bold text-red-800 uppercase tracking-widest text-sm mb-2">ACTIVITY MEMORY</h3>
+                            <img src="/gambar/ACT.jpg" class="w-full rounded-sm grayscale hover:grayscale-0 transition-all">
+                            <p class="font-handwriting text-right mt-2 text-red-400 text-sm">~ Day 2, 11:00 AM</p>
+                        </div>
+
+                        <!-- Design 18: Messy Tape Collage -->
+                        <div class="break-inside-avoid bg-white p-3 shadow-lg -rotate-3 relative mt-6">
+                            <div class="tape w-20 h-6 -top-3 -left-2 rotate-12 bg-pink-200/50 border-pink-100"></div>
+                            <div class="tape w-20 h-6 -bottom-3 -right-2 -rotate-12 bg-blue-200/50 border-blue-100"></div>
+                            <img src="/gambar/pnw.jpg" class="w-full">
+                        </div>
+
+                        <!-- Design 19: Clean Portrait -->
+                        <div class="break-inside-avoid photo-frame rotate-0 p-8 pb-16 bg-white shadow-2xl">
+                            <img src="/image/dordor.jpg" class="w-full aspect-[3/4] object-cover filter contrast-110">
+                            <div class="mt-4 text-center">
+                                <span class="font-handwriting text-3xl text-gray-800">Door Dor?</span>
+                            </div>
+                        </div>
+
+                        <!-- Design 20: The "End" Card -->
+                        <div class="break-inside-avoid bg-charcoal p-6 shadow-xl rotate-1 text-white text-center flex flex-col items-center justify-center min-h-[200px]">
+                            <span class="material-symbols-outlined text-5xl mb-4 text-primary">auto_awesome</span>
+                            <h3 class="font-handwriting text-3xl mb-2">To Be Continued...</h3>
+                            <p class="text-gray-400 text-sm font-mono">See you next trip!</p>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- ================= SQUAD VIEW (NEW PAGE) ================= -->
+        <div id="squad-view" class="view-section min-h-screen bg-white">
+            <div class="pt-20 pb-24 max-w-7xl mx-auto px-4">
+                
+                <!-- Header for Squad Page -->
+                <div class="flex flex-col items-center mb-16">
+                    <span class="bg-primary/10 text-primary px-4 py-1 rounded-full text-xs font-bold tracking-widest uppercase mb-4">PERSONIL</span>
+                    <h2 class="text-5xl md:text-7xl font-handwriting text-center mb-4 text-primary">Tim Peres</h2>
+                    <p class="text-gray-500 max-w-md text-center">Arahkan kursor ke kartu (atau tap di HP) untuk melihat realita kelakuan mereka!</p>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-x-8 gap-y-12">
+                    <!-- Member 1 -->
+                    <div class="group relative h-[450px] cursor-pointer perspective-1000">
+                        <div class="relative w-full h-full transition-all duration-500 preserve-3d group-hover:my-rotate-y-180">
+                            <!-- Front (Expectation) -->
+                            <div class="absolute inset-0 photo-frame rotate-1 flex flex-col group-hover:opacity-0 transition-opacity duration-300">
+                                <div class="flex-1 bg-gray-200 overflow-hidden">
+                                    <span class="material-symbols-outlined text-6xl">person_add</span>
+                                </div>
+                                <div class="mt-4 text-center">
+                                    <h3 class="font-bold text-2xl font-handwriting">Sarah</h3>
+                                    <p class="text-xs text-gray-500 uppercase tracking-widest mt-1 font-sans">Si Paling Rencana</p>
+                                </div>
+                            </div>
+
+                            <!-- Hover/Back (Reality) -->
+                            <div class="absolute inset-0 photo-frame -rotate-1 bg-secondary flex flex-col opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10">
+                                <div class="flex-1 bg-gray-300 overflow-hidden relative">
+                                    <span class="material-symbols-outlined text-6xl">person_add</span>
+                                    <div class="absolute inset-0 flex items-center justify-center">
+                                        <span class="bg-red-600 text-white px-2 py-1 font-bold -rotate-12 border-2 border-white text-xl">REALITA</span>
+                                    </div>
+                                </div>
+                                <div class="mt-4 p-2 text-center">
+                                    <p class="font-handwriting text-2xl leading-tight">"Aslinya panik tiap 5 menit."</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Member 2 -->
+                    <div class="group relative h-[450px] cursor-pointer">
+                        <div class="relative w-full h-full">
+                            <!-- Front -->
+                            <div class="absolute inset-0 photo-frame -rotate-1 flex flex-col group-hover:opacity-0 transition-opacity duration-300">
+                                <div class="flex-1 bg-gray-200 overflow-hidden">
+                                    <span class="material-symbols-outlined text-6xl">person_add</span>
+                                </div>
+                                <div class="mt-4 text-center">
+                                    <h3 class="font-bold text-2xl font-handwriting">Mike</h3>
+                                    <p class="text-xs text-gray-500 uppercase tracking-widest mt-1 font-sans">Si Penunjuk Jalan</p>
+                                </div>
+                            </div>
+                            <!-- Back -->
+                            <div class="absolute inset-0 photo-frame rotate-1 bg-secondary flex flex-col opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10">
+                                <div class="flex-1 bg-gray-300 overflow-hidden relative">
+                                    <span class="material-symbols-outlined text-6xl">person_add</span>
+                                    <div class="absolute inset-0 flex items-center justify-center">
+                                        <span class="bg-red-600 text-white px-2 py-1 font-bold -rotate-12 border-2 border-white text-xl">REALITA</span>
+                                    </div>
+                                </div>
+                                <div class="mt-4 p-2 text-center">
+                                    <p class="font-handwriting text-2xl leading-tight">"Nyasar 4 kali & salah baca maps."</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Member 3 Placeholder -->
+                    <div class="group relative h-[450px] cursor-pointer">
+                        <div class="relative w-full h-full">
+                            <div class="absolute inset-0 photo-frame rotate-2 flex flex-col group-hover:opacity-0 transition-opacity duration-300">
+                                <div class="flex-1 bg-gray-200 overflow-hidden flex items-center justify-center text-gray-400">
+                                    <span class="material-symbols-outlined text-6xl">person_add</span>
+                                </div>
+                                <div class="mt-4 text-center">
+                                    <h3 class="font-bold text-2xl font-handwriting">Member 3</h3>
+                                    <p class="text-xs text-gray-500 uppercase tracking-widest mt-1 font-sans">Julukan Dia</p>
+                                </div>
+                            </div>
+                            <div class="absolute inset-0 photo-frame -rotate-1 bg-secondary flex flex-col opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10">
+                                <div class="flex-1 bg-gray-300 overflow-hidden flex items-center justify-center">
+                                    <span class="font-handwriting text-2xl">Masukin Foto Aib</span>
+                                </div>
+                                <div class="mt-4 p-2 text-center">
+                                    <p class="font-handwriting text-2xl leading-tight">"Hobby: Tidur"</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Member 4 Placeholder -->
+                    <div class="group relative h-[450px] cursor-pointer">
+                        <div class="relative w-full h-full">
+                            <div class="absolute inset-0 photo-frame -rotate-2 flex flex-col group-hover:opacity-0 transition-opacity duration-300">
+                                <div class="flex-1 bg-gray-200 overflow-hidden flex items-center justify-center text-gray-400">
+                                    <span class="material-symbols-outlined text-6xl">person_add</span>
+                                </div>
+                                <div class="mt-4 text-center">
+                                    <h3 class="font-bold text-2xl font-handwriting">Member 4</h3>
+                                    <p class="text-xs text-gray-500 uppercase tracking-widest mt-1 font-sans">Julukan Dia</p>
+                                </div>
+                            </div>
+                            <div class="absolute inset-0 photo-frame rotate-1 bg-secondary flex flex-col opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10">
+                                <div class="flex-1 bg-gray-300 overflow-hidden flex items-center justify-center">
+                                    <span class="font-handwriting text-2xl">Masukin Foto Aib</span>
+                                </div>
+                                <div class="mt-4 p-2 text-center">
+                                    <p class="font-handwriting text-2xl leading-tight">"Makan terus"</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="mt-16 text-center">
+                    <button onclick="switchView('home')" class="bg-charcoal text-white px-8 py-3 rounded-full font-bold hover:bg-primary transition-colors inline-flex items-center gap-2">
+                        <span class="material-symbols-outlined">arrow_back</span> Kembali ke Beranda
+                    </button>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- 5. FOOTER -->
+    <footer class="bg-charcoal text-white pt-20 pb-10 relative overflow-hidden mt-auto">
+        <div class="max-w-4xl mx-auto px-4 text-center relative z-10">
+            <span class="material-symbols-outlined text-6xl text-sage mb-6">map</span>
+            <h2 class="text-4xl font-handwriting mb-6">Sampai jumpa di liburan selanjutnya...</h2>
+            <p class="text-gray-400 mb-10">Dibuat dengan kenangan & kasih Tuhan.</p>
+            <div class="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center text-sm text-gray-500">
+                <p>&copy; 2024 Tim Peres.</p>
+                <p>Didesain untuk 4 Hari 3 Malam.</p>
+            </div>
+        </div>
+        
+        <!-- Background Text -->
+        <div class="absolute bottom-0 left-0 w-full text-center pointer-events-none opacity-5">
+            <span class="text-[200px] font-bold leading-none">PERES</span>
+        </div>
+    </footer>
+
+    <!-- INTERACTION SCRIPTS -->
+    <script>
+        // PAGE SWITCHER LOGIC
+        function switchView(viewName, sectionId = null) {
+            // Hide all views
+            document.querySelectorAll('.view-section').forEach(el => {
+                el.classList.remove('active');
+            });
+            
+            // Show requested view
+            const targetView = document.getElementById(viewName + '-view');
+            if(targetView) {
+                targetView.classList.add('active');
+                
+                // Reset scroll to top immediately
+                window.scrollTo(0,0);
+                
+                // If a specific section was requested (e.g. Journey), scroll to it after a slight delay
+                if(sectionId) {
+                    setTimeout(() => {
+                        const section = document.getElementById(sectionId);
+                        if(section) section.scrollIntoView({behavior: 'smooth'});
+                    }, 100);
+                }
+            }
+        }
+
+        // Helper for smooth scrolling within Home view
+        function scrollToSection(sectionId) {
+            // Ensure we are on home view first
+            switchView('home', sectionId);
+        }
+
+        // Scroll Animation Observer
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.reveal-on-scroll').forEach((element) => {
+            observer.observe(element);
+        });
+
+        // --- SCRIPT MUSIK BARU (AUTOPLAY + STOP/PLAY) ---
+        const audio = document.getElementById('audio-player');
+        const musicBtn = document.getElementById('music-btn');
+        const musicIcon = document.getElementById('music-icon');
+        const musicText = document.getElementById('music-text');
+        
+        // Mobile Music Elements
+        const musicIconMobile = document.getElementById('music-icon-mobile');
+        const musicTextMobile = document.getElementById('music-text-mobile');
+        
+        let isPlaying = false;
+
+        function toggleMusic() {
+            if (isPlaying) {
+                audio.pause();
+                isPlaying = false;
+                
+                // Desktop UI Update
+                if(musicIcon) musicIcon.classList.remove('animate-spin-slow');
+                if(musicText) musicText.innerText = "Play Lagu";
+                if(musicBtn) {
+                    musicBtn.classList.remove('bg-primary');
+                    musicBtn.classList.add('bg-charcoal');
+                }
+                
+                // Mobile UI Update
+                if(musicIconMobile) musicIconMobile.classList.remove('animate-spin-slow');
+                
+            } else {
+                audio.play();
+                isPlaying = true;
+                
+                // Desktop UI Update
+                if(musicIcon) musicIcon.classList.add('animate-spin-slow');
+                if(musicText) musicText.innerText = "Stop Musik";
+                if(musicBtn) {
+                    musicBtn.classList.remove('bg-charcoal');
+                    musicBtn.classList.add('bg-primary');
+                }
+                
+                // Mobile UI Update
+                if(musicIconMobile) musicIconMobile.classList.add('animate-spin-slow');
+            }
+        }
+
+        // Coba play otomatis saat web dimuat
+        window.addEventListener('load', () => {
+            const playPromise = audio.play();
+            
+            if (playPromise !== undefined) {
+                playPromise.then(_ => {
+                    // Autoplay berhasil (Browser mengizinkan)
+                    isPlaying = true;
+                    
+                    // Desktop UI Update
+                    if(musicIcon) musicIcon.classList.add('animate-spin-slow');
+                    if(musicText) musicText.innerText = "Stop Musik";
+                    if(musicBtn) {
+                        musicBtn.classList.remove('bg-charcoal');
+                        musicBtn.classList.add('bg-primary');
+                    }
+                    
+                    // Mobile UI Update
+                    if(musicIconMobile) musicIconMobile.classList.add('animate-spin-slow');
+                })
+                .catch(error => {
+                    // Autoplay diblokir browser, user harus klik manual
+                    console.log("Autoplay diblokir browser, menunggu interaksi user.");
+                    isPlaying = false;
+                });
+            }
+        });
+    </script>
+</body>
+</html>
