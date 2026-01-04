@@ -5,6 +5,7 @@
     <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
     <title>Kelompok Peres - SYC 2025</title>
     <link rel="icon" href="/image/logo.png" type="image/png">
+    
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio"></script>
     
@@ -40,7 +41,7 @@
                     animation: {
                         'float': 'float 6s ease-in-out infinite',
                         'marquee': 'marquee 25s linear infinite',
-                        'spin-slow': 'spin 3s linear infinite', /* Animasi piringan hitam */
+                        'spin-slow': 'spin 3s linear infinite',
                     },
                     keyframes: {
                         float: {
@@ -136,13 +137,11 @@
             </div>
             
             <nav class="flex gap-8">
-                <!-- Changed href to onclick for SPA feel -->
                 <button onclick="switchView('home', 'journey')" class="font-bold text-sm hover:text-primary transition-colors">Perjalanan</button>
                 <button onclick="switchView('squad')" class="font-bold text-sm hover:text-primary transition-colors">Tim Peres</button>
                 <button onclick="switchView('home', 'memories')" class="font-bold text-sm hover:text-primary transition-colors">Kenangan</button>
             </nav>
 
-            <!-- TOMBOL MUSIK BARU (Update: Play/Stop + Icon Disc) -->
             <button id="music-btn-desktop" class="bg-charcoal text-white px-5 py-2 rounded-full text-sm font-bold hover:bg-primary transition-all shadow-lg flex items-center gap-2 group" onclick="toggleMusic()">
                 <span id="music-icon-desktop" class="material-symbols-outlined text-xl">album</span>
                 <span id="music-text-desktop">Play Lagu</span>
@@ -177,12 +176,11 @@
         <!-- Music Toggle (Mobile Version) -->
         <button onclick="toggleMusic()" class="flex flex-col items-center gap-1 text-gray-500 hover:text-primary active:text-primary transition-colors">
             <span id="music-icon-mobile" class="material-symbols-outlined text-2xl">album</span>
-            <span id="music-text-mobile" class="text-[10px] font-bold">Play</span>
+            <span id="music-text-mobile" class="text-[10px] font-bold">Musik</span>
         </button>
     </div>
     
     <!-- Hidden Audio Element -->
-    <!-- Tambahkan 'autoplay' agar mencoba nyala otomatis -->
     <audio id="audio-player" loop autoplay>
         <source src="videoplayback.weba" type="audio/mpeg">
     </audio>
@@ -195,7 +193,6 @@
             
             <!-- 1. HERO SECTION -->
             <section class="min-h-screen flex items-center justify-center relative overflow-hidden">
-                <!-- Decoration -->
                 <div class="absolute top-1/4 left-10 text-primary/10 rotate-12 animate-float">
                     <span class="material-symbols-outlined text-9xl">flight</span>
                 </div>
@@ -221,7 +218,6 @@
                     <div class="order-1 lg:order-2 relative w-full flex flex-col md:block items-center justify-center mt-8 md:mt-0 md:h-[500px]">
                         
                         <!-- Image 1 -->
-                        <!-- Mobile: Relative (stacked vertically), Desktop: Absolute (overlapping) -->
                         <div class="photo-frame relative md:absolute w-60 md:-rotate-6 md:bottom-10 md:left-10 z-20 animate-float mb-8 md:mb-0" style="animation-delay: 0s;">
                             <div class="aspect-square bg-gray-200 overflow-hidden relative">
                                 <img src="/image/buatdiawal1.jpg" class="object-cover w-full h-full" alt="Foto Candid">
@@ -239,7 +235,7 @@
                             <div class="tape w-24 h-6 -top-3 left-1/2 -translate-x-1/2 rotate-2"></div>
                         </div>
 
-                        <!-- Image 3 (YANG DITAMBAHKAN) -->
+                        <!-- Image 3 -->
                         <div class="photo-frame relative md:absolute w-52 md:rotate-20 md:top-20 md:left-20 z-30 animate-float" style="animation-delay: 1.5s;">
                             <div class="aspect-[4/3] bg-gray-200 overflow-hidden relative">
                                 <img src="/image/foto_tambahan.jpg" class="object-cover w-full h-full" alt="Foto Tambahan">
@@ -251,7 +247,6 @@
                     </div>
                 </div>
                 
-                <!-- Scroll Indicator (Hidden on mobile to save space) -->
                 <div class="absolute bottom-24 md:bottom-10 left-1/2 -translate-x-1/2 animate-bounce cursor-pointer hidden md:block" onclick="scrollToSection('journey')">
                     <span class="material-symbols-outlined text-gray-400">keyboard_arrow_down</span>
                 </div>
@@ -281,7 +276,6 @@
                                     </div>
                                 </div>
                                 
-                                <!-- Marker -->
                                 <div class="absolute left-4 md:left-1/2 w-4 h-4 bg-primary rounded-full border-4 border-white shadow-sm -translate-x-1.5 md:-translate-x-2 mt-4 md:mt-0 z-10"></div>
 
                                 <div class="md:w-1/2 pl-12 md:pl-0 order-1 md:order-2 text-left">
@@ -291,6 +285,8 @@
                                 </div>
                             </div>
                         </div>
+
+                        <!-- KKR 1 -->
                         <div class="reveal-on-scroll relative mb-20 md:mb-32">
                             <div class="flex flex-col md:flex-row items-center gap-8 md:gap-16">
                                 <div class="md:w-1/2 flex justify-end order-2 md:order-1">
@@ -302,10 +298,7 @@
                                         <div class="tape w-32 h-8 -top-4 left-1/2 -translate-x-1/2 -rotate-1"></div>
                                     </div>
                                 </div>
-                                
-                                <!-- Marker -->
                                 <div class="absolute left-4 md:left-1/2 w-4 h-4 bg-primary rounded-full border-4 border-white shadow-sm -translate-x-1.5 md:-translate-x-2 mt-4 md:mt-0 z-10"></div>
-
                                 <div class="md:w-1/2 pl-12 md:pl-0 order-1 md:order-2 text-left">
                                     <h3 class="text-3xl font-handwriting font-bold mb-2">Opening & KKR 1</h3>
                                     <p class="text-gray-600">Malam perdana kelompok peres SYC dimulai, kita praise & worship, dan mendengarkan firman Tuhan yang ngenalin kita pada satu-satunya jawaban atas hidup, pergumulan, dan masa depan kita.</p>
@@ -321,10 +314,7 @@
                                     <h3 class="text-3xl font-handwriting font-bold mb-2">Hari Activity kita</h3>
                                     <p class="text-gray-600">Di Day 2 kita pertama kali makan bareng, kita bisa beraktivitas bersama di hari kedua, dan mulai saling kenal dengan kelompok kita sendiri, mulai ada ikatan batin juga, ya bebrapa orang juga sudah akrab dengan temannya.</p>
                                 </div>
-                                
-                                <!-- Marker -->
                                 <div class="absolute left-4 md:left-1/2 w-4 h-4 bg-sage rounded-full border-4 border-white shadow-sm -translate-x-1.5 md:-translate-x-2 mt-4 md:mt-0 z-10"></div>
-
                                 <div class="md:w-1/2 order-2">
                                     <div class="photo-frame w-full max-w-sm rotate-1">
                                         <div class="aspect-video bg-gray-200 overflow-hidden">
@@ -336,16 +326,15 @@
                                 </div>
                             </div>
                         </div>
+
+                        <!-- KKR 2 -->
                         <div class="reveal-on-scroll relative mb-20 md:mb-32">
                             <div class="flex flex-col md:flex-row items-center gap-8 md:gap-16">
                                 <div class="md:w-1/2 text-left md:text-right pl-12 md:pl-0 order-1">
                                     <h3 class="text-3xl font-handwriting font-bold mb-2">SYC Talks & KKR 2</h3>
-                                    <p class="text-gray-600">Deep talk conference time bareng pembicara, kita dapat memahami tuntas isi kitab Galatia. Dapet insight fresh soal kasih karunia dan gimana hidup sebagai orang percaya yang sudah ditebus.</p>
+                                    <p class="text-gray-600">Deep talk conference time bareng pembicara, kita dapat memahami tuntas isi kitab Galatia. Dapet insgiht fresh soal kasih karunia dan gimana hidup sebagai orang percaya yang sudah ditebus.</p>
                                 </div>
-                                
-                                <!-- Marker -->
                                 <div class="absolute left-4 md:left-1/2 w-4 h-4 bg-sage rounded-full border-4 border-white shadow-sm -translate-x-1.5 md:-translate-x-2 mt-4 md:mt-0 z-10"></div>
-
                                 <div class="md:w-1/2 order-2">
                                     <div class="photo-frame w-full max-w-sm rotate-1">
                                         <div class="aspect-video bg-gray-200 overflow-hidden">
@@ -357,16 +346,15 @@
                                 </div>
                             </div>
                         </div>
+
+                         <!-- Reconnect -->
                         <div class="reveal-on-scroll relative mb-20 md:mb-32">
                             <div class="flex flex-col md:flex-row items-center gap-8 md:gap-16">
                                 <div class="md:w-1/2 text-left md:text-right pl-12 md:pl-0 order-1">
                                     <h3 class="text-3xl font-handwriting font-bold mb-2">Re-connect</h3>
                                     <p class="text-gray-600">Tahun berganti, tapi yang paling bikin semangat adalah kita memulainya bersama-sama. Yuk, kita hadapi semua tantangan dan cerita seru di depan sana bareng-bareng. </p>
                                 </div>
-                                
-                                <!-- Marker -->
                                 <div class="absolute left-4 md:left-1/2 w-4 h-4 bg-sage rounded-full border-4 border-white shadow-sm -translate-x-1.5 md:-translate-x-2 mt-4 md:mt-0 z-10"></div>
-
                                 <div class="md:w-1/2 order-2">
                                     <div class="photo-frame w-full max-w-sm rotate-1">
                                         <div class="aspect-video bg-gray-200 overflow-hidden">
@@ -391,9 +379,7 @@
                                         <div class="tape w-32 h-8 -top-4 left-10 -rotate-1"></div>
                                     </div>
                                 </div>
-                                
                                 <div class="absolute left-4 md:left-1/2 w-4 h-4 bg-primary rounded-full border-4 border-white shadow-sm -translate-x-1.5 md:-translate-x-2 mt-4 md:mt-0 z-10"></div>
-
                                 <div class="md:w-1/2 pl-12 md:pl-0 order-1 md:order-2 text-left">
                                     <span class="inline-block bg-charcoal text-white text-xs font-bold px-3 py-1 rounded mb-2">HARI 3</span>
                                     <h3 class="text-3xl font-handwriting font-bold mb-2">Morning Devotion</h3>
@@ -401,7 +387,8 @@
                                 </div>
                             </div>
                         </div>
-                        <!-- Day 3 -->
+
+                        <!-- KKR 3 -->
                         <div class="reveal-on-scroll relative mb-12">
                             <div class="flex flex-col md:flex-row items-center gap-8 md:gap-16">
                                 <div class="md:w-1/2 flex justify-end order-2 md:order-1">
@@ -413,9 +400,7 @@
                                         <div class="tape w-32 h-8 -top-4 left-10 -rotate-1"></div>
                                     </div>
                                 </div>
-                                
                                 <div class="absolute left-4 md:left-1/2 w-4 h-4 bg-primary rounded-full border-4 border-white shadow-sm -translate-x-1.5 md:-translate-x-2 mt-4 md:mt-0 z-10"></div>
-
                                 <div class="md:w-1/2 pl-12 md:pl-0 order-1 md:order-2 text-left">
                                     <h3 class="text-3xl font-handwriting font-bold mb-2">KKR Ke 3 & SYC Talks</h3>
                                     <p class="text-gray-600">Puncak KKR malam ini kita bareng-bareng masuk dalam praise & worship, dengar firman Tuhan, dan diingatkan bagaimana Gen Z yang udah ditebus bisa hidup relevan & jadi berkat di dunia sekarang.</p>
@@ -429,12 +414,9 @@
                                 <div class="md:w-1/2 text-left md:text-right pl-12 md:pl-0 order-1">
                                     <span class="inline-block bg-primary text-white text-xs font-bold px-3 py-1 rounded mb-2">HARI 4</span>
                                     <h3 class="text-3xl font-handwriting font-bold mb-2">Bye Guyss!</h3>
-                                    <p class="text-gray-600">Penutupan SYC 2025 adalah recap perjalanan kita & remainder bahwa cerita penebusan Kristus adalah cerita terbaik yang patut kita bagikan. </p>
+                                    <p class="text-gray-600">Penutupan SYc 2025 adalah recap perjalanan kita & remainder bahwa cerita penebusan Kristus adalah cerita terbaik yang patut kita bagikan. </p>
                                 </div>
-                                
-                                <!-- Marker -->
                                 <div class="absolute left-4 md:left-1/2 w-4 h-4 bg-sage rounded-full border-4 border-white shadow-sm -translate-x-1.5 md:-translate-x-2 mt-4 md:mt-0 z-10"></div>
-
                                 <div class="md:w-1/2 order-2">
                                     <div class="photo-frame w-full max-w-sm rotate-1">
                                         <div class="aspect-video bg-gray-200 overflow-hidden">
@@ -453,8 +435,6 @@
 
             <!-- 4. MEMORY WALL (MARQUEE & MASONRY) -->
             <section id="memories" class="py-16 overflow-hidden">
-                
-                <!-- Marquee Text -->
                 <div class="bg-primary text-white py-4 rotate-1 scale-105 mb-16 shadow-lg border-y-4 border-white border-dashed">
                     <div class="whitespace-nowrap overflow-hidden flex">
                         <div class="animate-marquee flex gap-8 font-bold text-2xl font-display uppercase tracking-widest">
@@ -504,10 +484,8 @@
 
                         <!-- Design 5: Polaroid with 'Washi Tape' Corners -->
                         <div class="break-inside-avoid bg-white p-4 shadow-lg rotate-1 relative">
-                            <!-- Washi Tape Corners -->
                             <div class="absolute -top-2 -left-2 w-8 h-8 bg-blue-200/50 -rotate-45"></div>
                             <div class="absolute -bottom-2 -right-2 w-8 h-8 bg-blue-200/50 -rotate-45"></div>
-                            
                             <img src="/gambar/pakbu.jpg" class="w-full mb-4 border-4 border-gray-100">
                             <p class="font-handwriting text-xl text-center">Pakketu dan Buketu Peres</p>
                         </div>
@@ -539,7 +517,7 @@
                                     <p class="font-handwriting text-lg leading-snug">"Dear future us, jangan lupa momen ini ya. Seru banget gila!"</p>
                                 </div>
                                 <div class="w-16 h-20 border border-gray-300 flex items-center justify-center bg-gray-50">
-                                    <img src="https://cdn-icons-png.flaticon.com/512/6276/6276321.png" class="w-full h-full object-contain opacity-80 rotate-6" alt="Postage Stamp">
+                                    <span class="text-[10px] text-gray-400">STAMP</span>
                                 </div>
                             </div>
                             <div class="border-t border-gray-200 pt-2">
@@ -570,7 +548,7 @@
                         <div class="break-inside-avoid bg-blue-50 p-6 shadow-sm rotate-2 relative border-l-4 border-blue-200">
                             <span class="material-symbols-outlined absolute -top-3 right-4 text-gray-400 text-3xl transform rotate-45">attachment</span>
                             <h4 class="font-bold text-blue-800 mb-2 font-display">Quotes of the Day:</h4>
-                            <p class="font-handwriting text-xl text-blue-900">"Janganlah takut, sebab Aku telah menebus engkau" - SYC 25</p>
+                            <p class="font-handwriting text-xl text-blue-900">"Makan bang, jangan wacana doang."</p>
                         </div>
 
                         <!-- Design 12: Minimalist Clean Frame -->
@@ -582,26 +560,23 @@
                             </div>
                         </div>
 
-                        <!-- Design 13: Instant Photo Strip (UPDATED with 3 strips) -->
+                        <!-- Design 13: Instant Photo Strip -->
                         <div class="break-inside-avoid relative h-96 w-full p-2">
-                            <!-- Strip 1 (Left) -->
                             <div class="absolute top-12 -left-2 bg-gray-900 p-2 shadow-lg -rotate-12 z-10 w-28">
-                                <img src="/gambar/k1.jpg" class="w-full aspect-[3/2] object-cover border-2 border-white mb-2">
-                                <img src="/gambar/ACT.jpg" class="w-full aspect-[3/2] object-cover border-2 border-white mb-2">
-                                <img src="/gambar/domba.jpg" class="w-full aspect-[3/2] object-cover border-2 border-white">
+                                <img src="/image/strip1.jpg" class="w-full aspect-[3/2] object-cover border-2 border-white mb-2">
+                                <img src="/image/strip2.jpg" class="w-full aspect-[3/2] object-cover border-2 border-white mb-2">
+                                <img src="/image/strip3.jpg" class="w-full aspect-[3/2] object-cover border-2 border-white">
                             </div>
-                            <!-- Strip 2 (Center) -->
                             <div class="absolute top-0 left-1/2 -translate-x-1/2 bg-gray-900 p-2 shadow-2xl rotate-2 z-30 w-32">
-                                <img src="/gambar/piting1.jpg" class="w-full aspect-[3/2] object-cover border-2 border-white mb-2">
-                                <img src="/gambar/piting2.jpg" class="w-full aspect-[3/2] object-cover border-2 border-white mb-2">
-                                <img src="/gambar/piting3.jpg" class="w-full aspect-[3/2] object-cover border-2 border-white">
+                                <img src="/image/piting1.jpg" class="w-full aspect-[3/2] object-cover border-2 border-white mb-2">
+                                <img src="/image/piting2.jpg" class="w-full aspect-[3/2] object-cover border-2 border-white mb-2">
+                                <img src="/image/piting3.jpg" class="w-full aspect-[3/2] object-cover border-2 border-white">
                                 <p class="text-white text-center font-handwriting text-xs pt-1">Photobooth!</p>
                             </div>
-                            <!-- Strip 3 (Right) -->
                             <div class="absolute top-8 -right-2 bg-gray-900 p-2 shadow-lg rotate-12 z-20 w-28">
-                                <img src="/gambar/l.jpg" class="w-full aspect-[3/2] object-cover border-2 border-white mb-2">
-                                <img src="/gambar/nametag.jpg" class="w-full aspect-[3/2] object-cover border-2 border-white mb-2">
-                                <img src="/gambar/k2.jpg" class="w-full aspect-[3/2] object-cover border-2 border-white">
+                                <img src="/image/strip3.jpg" class="w-full aspect-[3/2] object-cover border-2 border-white mb-2">
+                                <img src="/image/strip1.jpg" class="w-full aspect-[3/2] object-cover border-2 border-white mb-2">
+                                <img src="/image/strip2.jpg" class="w-full aspect-[3/2] object-cover border-2 border-white">
                             </div>
                         </div>
 
@@ -615,15 +590,10 @@
                         <!-- Design 15: Map Fragment (UPDATED with Real Map Look & Photo) -->
                         <div class="break-inside-avoid bg-white p-2 shadow-md -rotate-2 border-4 border-white">
                             <div class="w-full h-56 bg-blue-50 relative overflow-hidden rounded-sm group">
-                                <!-- Map Image -->
-                                <img src="/gambar/maps.png" class="w-full h-full object-cover opacity-90 group-hover:scale-110 transition-transform duration-700" alt="Map Location">
-                                
-                                <!-- Overlay Photo on Map -->
+                                <img src="/image/maps_lokasi.jpg" class="w-full h-full object-cover opacity-90 group-hover:scale-110 transition-transform duration-700" alt="Map Location">
                                 <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-white p-1.5 shadow-xl rotate-3 w-24">
-                                    <img src="/gambar/saat.jpg" class="w-full aspect-square object-cover">
+                                    <img src="/image/we_here.jpg" class="w-full aspect-square object-cover">
                                 </div>
-                                
-                                <!-- Pin Icon -->
                                 <span class="material-symbols-outlined absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-16 text-red-600 text-4xl drop-shadow-md animate-bounce">location_on</span>
                             </div>
                             <p class="font-handwriting text-center mt-3 text-lg font-bold text-gray-700">We were here!</p>
@@ -674,7 +644,7 @@
             </section>
         </div>
 
-        <!-- ================= SQUAD VIEW (NEW PAGE) ================= -->
+        <!-- ================= SQUAD VIEW (NEW PAGE - UPDATED) ================= -->
         <div id="squad-view" class="view-section min-h-screen bg-white">
             <div class="pt-20 pb-24 max-w-7xl mx-auto px-4">
                 
@@ -682,109 +652,523 @@
                 <div class="flex flex-col items-center mb-16">
                     <span class="bg-primary/10 text-primary px-4 py-1 rounded-full text-xs font-bold tracking-widest uppercase mb-4">PERSONIL</span>
                     <h2 class="text-5xl md:text-7xl font-handwriting text-center mb-4 text-primary">Tim Peres</h2>
-                    <p class="text-gray-500 max-w-md text-center">Arahkan kursor ke kartu (atau tap di HP) untuk melihat realita kelakuan mereka!</p>
+                    <p class="text-gray-500 max-w-md text-center">Keluarga kecil yang dipersatukan oleh 4 hari 3 malam.</p>
                 </div>
 
-                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-x-8 gap-y-12">
-                    <!-- Member 1 -->
-                    <div class="group relative h-[450px] cursor-pointer perspective-1000">
-                        <div class="relative w-full h-full transition-all duration-500 preserve-3d group-hover:my-rotate-y-180">
-                            <!-- Front (Expectation) -->
-                            <div class="absolute inset-0 photo-frame rotate-1 flex flex-col group-hover:opacity-0 transition-opacity duration-300">
-                                <div class="flex-1 bg-gray-200 overflow-hidden">
-                                    <span class="material-symbols-outlined text-6xl">person_add</span>
-                                </div>
-                                <div class="mt-4 text-center">
-                                    <h3 class="font-bold text-2xl font-handwriting">Sarah</h3>
-                                    <p class="text-xs text-gray-500 uppercase tracking-widest mt-1 font-sans">Si Paling Rencana</p>
-                                </div>
-                            </div>
+                <!-- NEW SQUAD GRID -->
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+                    <!-- Template Kartu Member (Loop untuk setiap orang) -->
+                    <!-- Data diurutkan berdasarkan ulang tahun (Jan - Des) -->
 
-                            <!-- Hover/Back (Reality) -->
-                            <div class="absolute inset-0 photo-frame -rotate-1 bg-secondary flex flex-col opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10">
-                                <div class="flex-1 bg-gray-300 overflow-hidden relative">
-                                    <span class="material-symbols-outlined text-6xl">person_add</span>
-                                    <div class="absolute inset-0 flex items-center justify-center">
-                                        <span class="bg-red-600 text-white px-2 py-1 font-bold -rotate-12 border-2 border-white text-xl">REALITA</span>
-                                    </div>
-                                </div>
-                                <div class="mt-4 p-2 text-center">
-                                    <p class="font-handwriting text-2xl leading-tight">"Aslinya panik tiap 5 menit."</p>
-                                </div>
+                    <!-- 1. Justin (3 Maret 2008) -->
+                    <div class="bg-white rounded-xl shadow-lg border border-gray-100 overflow-hidden hover:shadow-xl transition-shadow flex flex-col">
+                        <div class="h-64 bg-gray-200 relative overflow-hidden">
+                             <img src="/image/member_justin.jpg" class="w-full h-full object-cover object-center" alt="Justin">
+                             <div class="absolute top-2 right-2 bg-white/90 px-3 py-1 rounded-full text-xs font-bold text-primary shadow-sm">3 Mar</div>
+                        </div>
+                        <div class="p-6 flex flex-col flex-grow">
+                            <div class="flex justify-between items-start mb-2">
+                                <h3 class="font-bold text-xl text-charcoal">Justin</h3>
+                                <span class="text-xs font-mono text-gray-400 bg-gray-100 px-2 py-1 rounded">17 th</span>
+                            </div>
+                            <p class="text-gray-600 text-sm italic mb-4">"Lagu Dashyat by Justin"</p>
+                            <div class="mt-auto pt-4 border-t border-gray-100">
+                                <p class="text-[10px] uppercase tracking-widest text-gray-400 mb-1">RESOLUSI 2026</p>
+                                <p class="text-sm font-medium text-primary">Makin dahsyat lagi!</p>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Member 2 -->
-                    <div class="group relative h-[450px] cursor-pointer">
-                        <div class="relative w-full h-full">
-                            <!-- Front -->
-                            <div class="absolute inset-0 photo-frame -rotate-1 flex flex-col group-hover:opacity-0 transition-opacity duration-300">
-                                <div class="flex-1 bg-gray-200 overflow-hidden">
-                                    <span class="material-symbols-outlined text-6xl">person_add</span>
-                                </div>
-                                <div class="mt-4 text-center">
-                                    <h3 class="font-bold text-2xl font-handwriting">Mike</h3>
-                                    <p class="text-xs text-gray-500 uppercase tracking-widest mt-1 font-sans">Si Penunjuk Jalan</p>
-                                </div>
-                            </div>
-                            <!-- Back -->
-                            <div class="absolute inset-0 photo-frame rotate-1 bg-secondary flex flex-col opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10">
-                                <div class="flex-1 bg-gray-300 overflow-hidden relative">
-                                    <span class="material-symbols-outlined text-6xl">person_add</span>
-                                    <div class="absolute inset-0 flex items-center justify-center">
-                                        <span class="bg-red-600 text-white px-2 py-1 font-bold -rotate-12 border-2 border-white text-xl">REALITA</span>
-                                    </div>
-                                </div>
-                                <div class="mt-4 p-2 text-center">
-                                    <p class="font-handwriting text-2xl leading-tight">"Nyasar 4 kali & salah baca maps."</p>
-                                </div>
-                            </div>
+                    <!-- 2. Alvin (8 Maret 2007) -->
+                    <div class="bg-white rounded-xl shadow-lg border border-gray-100 overflow-hidden hover:shadow-xl transition-shadow flex flex-col">
+                        <div class="h-64 bg-gray-200 relative overflow-hidden">
+                             <img src="/profile/alvin.jpg" class="w-full h-full object-cover object-center" alt="Alvin">
+                             <div class="absolute top-2 right-2 bg-white/90 px-3 py-1 rounded-full text-xs font-bold text-primary shadow-sm">8 Mar</div>
                         </div>
-                    </div>
-                    
-                    <!-- Member 3 Placeholder -->
-                    <div class="group relative h-[450px] cursor-pointer">
-                        <div class="relative w-full h-full">
-                            <div class="absolute inset-0 photo-frame rotate-2 flex flex-col group-hover:opacity-0 transition-opacity duration-300">
-                                <div class="flex-1 bg-gray-200 overflow-hidden flex items-center justify-center text-gray-400">
-                                    <span class="material-symbols-outlined text-6xl">person_add</span>
-                                </div>
-                                <div class="mt-4 text-center">
-                                    <h3 class="font-bold text-2xl font-handwriting">Member 3</h3>
-                                    <p class="text-xs text-gray-500 uppercase tracking-widest mt-1 font-sans">Julukan Dia</p>
-                                </div>
+                        <div class="p-6 flex flex-col flex-grow">
+                            <div class="flex justify-between items-start mb-2">
+                                <h3 class="font-bold text-xl text-charcoal">Alvin</h3>
+                                <span class="text-xs font-mono text-gray-400 bg-gray-100 px-2 py-1 rounded">18 th</span>
                             </div>
-                            <div class="absolute inset-0 photo-frame -rotate-1 bg-secondary flex flex-col opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10">
-                                <div class="flex-1 bg-gray-300 overflow-hidden flex items-center justify-center">
-                                    <span class="font-handwriting text-2xl">Masukin Foto Aib</span>
-                                </div>
-                                <div class="mt-4 p-2 text-center">
-                                    <p class="font-handwriting text-2xl leading-tight">"Hobby: Tidur"</p>
-                                </div>
+                             <p class="text-gray-600 text-sm italic mb-4">"Sampai berjumpa di lain hari, berharap bisa berkumpul lagi, makasih atas kenangan indah selama 5 hari ini"</p>
+                            <div class="mt-auto pt-4 border-t border-gray-100">
+                                <p class="text-[10px] uppercase tracking-widest text-gray-400 mb-1">RESOLUSI 2026</p>
+                                <p class="text-sm font-medium text-primary">Nggak ulang kelas.</p>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Member 4 Placeholder -->
-                    <div class="group relative h-[450px] cursor-pointer">
-                        <div class="relative w-full h-full">
-                            <div class="absolute inset-0 photo-frame -rotate-2 flex flex-col group-hover:opacity-0 transition-opacity duration-300">
-                                <div class="flex-1 bg-gray-200 overflow-hidden flex items-center justify-center text-gray-400">
-                                    <span class="material-symbols-outlined text-6xl">person_add</span>
-                                </div>
-                                <div class="mt-4 text-center">
-                                    <h3 class="font-bold text-2xl font-handwriting">Member 4</h3>
-                                    <p class="text-xs text-gray-500 uppercase tracking-widest mt-1 font-sans">Julukan Dia</p>
-                                </div>
+                    <!-- 3. Pierson (28 Maret 2008) -->
+                    <div class="bg-white rounded-xl shadow-lg border border-gray-100 overflow-hidden hover:shadow-xl transition-shadow flex flex-col">
+                         <div class="h-64 bg-gray-200 relative overflow-hidden">
+                             <img src="/image/member_pierson.jpg" class="w-full h-full object-cover object-center" alt="Pierson">
+                             <div class="absolute top-2 right-2 bg-white/90 px-3 py-1 rounded-full text-xs font-bold text-primary shadow-sm">28 Mar</div>
+                        </div>
+                        <div class="p-6 flex flex-col flex-grow">
+                             <div class="flex justify-between items-start mb-2">
+                                <h3 class="font-bold text-xl text-charcoal">Pierson</h3>
+                                <span class="text-xs font-mono text-gray-400 bg-gray-100 px-2 py-1 rounded">17 th</span>
                             </div>
-                            <div class="absolute inset-0 photo-frame rotate-1 bg-secondary flex flex-col opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10">
-                                <div class="flex-1 bg-gray-300 overflow-hidden flex items-center justify-center">
-                                    <span class="font-handwriting text-2xl">Masukin Foto Aib</span>
-                                </div>
-                                <div class="mt-4 p-2 text-center">
-                                    <p class="font-handwriting text-2xl leading-tight">"Makan terus"</p>
-                                </div>
+                            <p class="text-gray-600 text-sm italic mb-4">"Gamer sejati."</p>
+                            <div class="mt-auto pt-4 border-t border-gray-100">
+                                <p class="text-[10px] uppercase tracking-widest text-gray-400 mb-1">RESOLUSI 2026</p>
+                                <p class="text-sm font-medium text-primary">Rank up terus!</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 4. Samantha (31 Maret 2002) -->
+                     <div class="bg-white rounded-xl shadow-lg border border-gray-100 overflow-hidden hover:shadow-xl transition-shadow flex flex-col">
+                        <div class="h-64 bg-gray-200 relative overflow-hidden">
+                             <img src="/image/member_samantha.jpg" class="w-full h-full object-cover object-center" alt="Samantha">
+                             <div class="absolute top-2 right-2 bg-white/90 px-3 py-1 rounded-full text-xs font-bold text-primary shadow-sm">31 Mar</div>
+                        </div>
+                        <div class="p-6 flex flex-col flex-grow">
+                            <div class="flex justify-between items-start mb-2">
+                                <h3 class="font-bold text-xl text-charcoal">Samantha</h3>
+                                <span class="text-xs font-mono text-gray-400 bg-gray-100 px-2 py-1 rounded">23 th</span>
+                            </div>
+                            <p class="text-gray-600 text-sm italic mb-4">"Dewasa dan bijaksana."</p>
+                            <div class="mt-auto pt-4 border-t border-gray-100">
+                                <p class="text-[10px] uppercase tracking-widest text-gray-400 mb-1">RESOLUSI 2026</p>
+                                <p class="text-sm font-medium text-primary">Karier makin cemerlang.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 5. Hose (4 Mei 2006) -->
+                     <div class="bg-white rounded-xl shadow-lg border border-gray-100 overflow-hidden hover:shadow-xl transition-shadow flex flex-col">
+                        <div class="h-64 bg-gray-200 relative overflow-hidden">
+                             <img src="/profile/hose.jpg" class="w-full h-full object-cover object-center" alt="Hose">
+                             <div class="absolute top-2 right-2 bg-white/90 px-3 py-1 rounded-full text-xs font-bold text-primary shadow-sm">4 Mei</div>
+                        </div>
+                         <div class="p-6 flex flex-col flex-grow">
+                            <div class="flex justify-between items-start mb-2">
+                                <h3 class="font-bold text-xl text-charcoal">Hose</h3>
+                                <span class="text-xs font-mono text-gray-400 bg-gray-100 px-2 py-1 rounded">19 th</span>
+                            </div>
+                            <p class="text-gray-600 text-sm italic mb-4">"APA YA PERES KANGENIN DEH."</p>
+                            <div class="mt-auto pt-4 border-t border-gray-100">
+                                <p class="text-[10px] uppercase tracking-widest text-gray-400 mb-1">RESOLUSI 2026</p>
+                                <p class="text-sm font-medium text-primary">Tidak mau mengecewakan Tuhan lagi.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 6. Darrel (8 Mei 2009) -->
+                    <div class="bg-white rounded-xl shadow-lg border border-gray-100 overflow-hidden hover:shadow-xl transition-shadow flex flex-col">
+                        <div class="h-64 bg-gray-200 relative overflow-hidden">
+                             <img src="/image/member_darrel.jpg" class="w-full h-full object-cover object-center" alt="Darrel">
+                             <div class="absolute top-2 right-2 bg-white/90 px-3 py-1 rounded-full text-xs font-bold text-primary shadow-sm">8 Mei</div>
+                        </div>
+                        <div class="p-6 flex flex-col flex-grow">
+                            <div class="flex justify-between items-start mb-2">
+                                <h3 class="font-bold text-xl text-charcoal">Darrel</h3>
+                                <span class="text-xs font-mono text-gray-400 bg-gray-100 px-2 py-1 rounded">16 th</span>
+                            </div>
+                            <p class="text-gray-600 text-sm italic mb-4">"Semangat ikut lagi tahun ini!"</p>
+                            <div class="mt-auto pt-4 border-t border-gray-100">
+                                <p class="text-[10px] uppercase tracking-widest text-gray-400 mb-1">RESOLUSI 2026</p>
+                                <p class="text-sm font-medium text-primary">Jago main musik.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 7. Key (20 Mei 2011) -->
+                    <div class="bg-white rounded-xl shadow-lg border border-gray-100 overflow-hidden hover:shadow-xl transition-shadow flex flex-col">
+                         <div class="h-64 bg-gray-200 relative overflow-hidden">
+                             <img src="/image/member_key.jpg" class="w-full h-full object-cover object-center" alt="Key">
+                             <div class="absolute top-2 right-2 bg-white/90 px-3 py-1 rounded-full text-xs font-bold text-primary shadow-sm">20 Mei</div>
+                        </div>
+                         <div class="p-6 flex flex-col flex-grow">
+                             <div class="flex justify-between items-start mb-2">
+                                <h3 class="font-bold text-xl text-charcoal">Key</h3>
+                                <span class="text-xs font-mono text-gray-400 bg-gray-100 px-2 py-1 rounded">14 th</span>
+                            </div>
+                            <p class="text-gray-600 text-sm italic mb-4">"Kecil-kecil cabe rawit."</p>
+                            <div class="mt-auto pt-4 border-t border-gray-100">
+                                <p class="text-[10px] uppercase tracking-widest text-gray-400 mb-1">RESOLUSI 2026</p>
+                                <p class="text-sm font-medium text-primary">Makin pinter di sekolah.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 8. Vivi (23 Mei 2005) -->
+                    <div class="bg-white rounded-xl shadow-lg border border-gray-100 overflow-hidden hover:shadow-xl transition-shadow flex flex-col">
+                        <div class="h-64 bg-gray-200 relative overflow-hidden">
+                             <img src="/profile/vivi.webp" class="w-full h-full object-cover object-center" alt="Vivi">
+                             <div class="absolute top-2 right-2 bg-white/90 px-3 py-1 rounded-full text-xs font-bold text-primary shadow-sm">23 Mei</div>
+                        </div>
+                        <div class="p-6 flex flex-col flex-grow">
+                            <div class="flex justify-between items-start mb-2">
+                                <h3 class="font-bold text-xl text-charcoal">Vivi</h3>
+                                <span class="text-xs font-mono text-gray-400 bg-gray-100 px-2 py-1 rounded">20 th</span>
+                            </div>
+                            <p class="text-gray-600 text-sm italic mb-4">"Tuhan yang akan terus memegang kendali akan hidup kita dari sekarang sampai selamanya."</p>
+                            <div class="mt-auto pt-4 border-t border-gray-100">
+                                <p class="text-[10px] uppercase tracking-widest text-gray-400 mb-1">RESOLUSI 2026</p>
+                                <p class="text-sm font-medium text-primary">Membawa terang di tengah kegelapan dunia saat ini.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 9. Angkasa (3 Juni 2008) -->
+                    <div class="bg-white rounded-xl shadow-lg border border-gray-100 overflow-hidden hover:shadow-xl transition-shadow flex flex-col">
+                        <div class="h-64 bg-gray-200 relative overflow-hidden">
+                             <img src="/profile/angkasa.jpg" class="w-full h-full object-cover object-center" alt="Angkasa">
+                             <div class="absolute top-2 right-2 bg-white/90 px-3 py-1 rounded-full text-xs font-bold text-primary shadow-sm">3 Jun</div>
+                        </div>
+                        <div class="p-6 flex flex-col flex-grow">
+                             <div class="flex justify-between items-start mb-2">
+                                <h3 class="font-bold text-xl text-charcoal">Angkasa</h3>
+                                <span class="text-xs font-mono text-gray-400 bg-gray-100 px-2 py-1 rounded">17 th</span>
+                            </div>
+                            <p class="text-gray-600 text-sm italic mb-4">"Jika hidup adalah medan perang, jadilah pejuang, bukan penonton"</p>
+                             <div class="mt-auto pt-4 border-t border-gray-100">
+                                <p class="text-[10px] uppercase tracking-widest text-gray-400 mb-1">RESOLUSI 2026</p>
+                                <p class="text-sm font-medium text-primary">lebih rajin bljr biar lulus PTN sama lebih sering pelayanan.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 10. Jere (3 Juni 2007) -->
+                     <div class="bg-white rounded-xl shadow-lg border border-gray-100 overflow-hidden hover:shadow-xl transition-shadow flex flex-col">
+                        <div class="h-64 bg-gray-200 relative overflow-hidden">
+                             <img src="/image/member_jere.jpg" class="w-full h-full object-cover object-center" alt="Jere">
+                             <div class="absolute top-2 right-2 bg-white/90 px-3 py-1 rounded-full text-xs font-bold text-primary shadow-sm">3 Jun</div>
+                        </div>
+                        <div class="p-6 flex flex-col flex-grow">
+                            <div class="flex justify-between items-start mb-2">
+                                <h3 class="font-bold text-xl text-charcoal">Jere</h3>
+                                <span class="text-xs font-mono text-gray-400 bg-gray-100 px-2 py-1 rounded">18 th</span>
+                            </div>
+                            <p class="text-gray-600 text-sm italic mb-4">"Birthday twin sama Angkasa!"</p>
+                            <div class="mt-auto pt-4 border-t border-gray-100">
+                                <p class="text-[10px] uppercase tracking-widest text-gray-400 mb-1">RESOLUSI 2026</p>
+                                <p class="text-sm font-medium text-primary">Kuliah lancar jaya.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 11. Rachel (24 Juni 2010) -->
+                     <div class="bg-white rounded-xl shadow-lg border border-gray-100 overflow-hidden hover:shadow-xl transition-shadow flex flex-col">
+                        <div class="h-64 bg-gray-200 relative overflow-hidden">
+                             <img src="/image/member_rachel.jpg" class="w-full h-full object-cover object-center" alt="Rachel">
+                             <div class="absolute top-2 right-2 bg-white/90 px-3 py-1 rounded-full text-xs font-bold text-primary shadow-sm">24 Jun</div>
+                        </div>
+                        <div class="p-6 flex flex-col flex-grow">
+                            <div class="flex justify-between items-start mb-2">
+                                <h3 class="font-bold text-xl text-charcoal">Rachel</h3>
+                                <span class="text-xs font-mono text-gray-400 bg-gray-100 px-2 py-1 rounded">15 th</span>
+                            </div>
+                            <p class="text-gray-600 text-sm italic mb-4">"Cheerful energy!"</p>
+                            <div class="mt-auto pt-4 border-t border-gray-100">
+                                <p class="text-[10px] uppercase tracking-widest text-gray-400 mb-1">RESOLUSI 2026</p>
+                                <p class="text-sm font-medium text-primary">Belajar bahasa baru.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 12. Orianna (29 Juni 2009) -->
+                    <div class="bg-white rounded-xl shadow-lg border border-gray-100 overflow-hidden hover:shadow-xl transition-shadow flex flex-col">
+                        <div class="h-64 bg-gray-200 relative overflow-hidden">
+                             <img src="/image/member_orianna.jpg" class="w-full h-full object-cover object-center" alt="Orianna">
+                             <div class="absolute top-2 right-2 bg-white/90 px-3 py-1 rounded-full text-xs font-bold text-primary shadow-sm">29 Jun</div>
+                        </div>
+                        <div class="p-6 flex flex-col flex-grow">
+                             <div class="flex justify-between items-start mb-2">
+                                <h3 class="font-bold text-xl text-charcoal">Orianna</h3>
+                                <span class="text-xs font-mono text-gray-400 bg-gray-100 px-2 py-1 rounded">16 th</span>
+                            </div>
+                            <p class="text-gray-600 text-sm italic mb-4">"Artistic soul."</p>
+                            <div class="mt-auto pt-4 border-t border-gray-100">
+                                <p class="text-[10px] uppercase tracking-widest text-gray-400 mb-1">RESOLUSI 2026</p>
+                                <p class="text-sm font-medium text-primary">Bikin pameran karya.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 13. Nathan (17 Juli 2000) -->
+                     <div class="bg-white rounded-xl shadow-lg border border-gray-100 overflow-hidden hover:shadow-xl transition-shadow flex flex-col">
+                        <div class="h-64 bg-gray-200 relative overflow-hidden">
+                             <img src="/image/member_nathan.jpg" class="w-full h-full object-cover object-center" alt="Nathan">
+                             <div class="absolute top-2 right-2 bg-white/90 px-3 py-1 rounded-full text-xs font-bold text-primary shadow-sm">17 Jul</div>
+                        </div>
+                        <div class="p-6 flex flex-col flex-grow">
+                             <div class="flex justify-between items-start mb-2">
+                                <h3 class="font-bold text-xl text-charcoal">Nathan</h3>
+                                <span class="text-xs font-mono text-gray-400 bg-gray-100 px-2 py-1 rounded">25 th</span>
+                            </div>
+                            <p class="text-gray-600 text-sm italic mb-4">"The senior advisor."</p>
+                            <div class="mt-auto pt-4 border-t border-gray-100">
+                                <p class="text-[10px] uppercase tracking-widest text-gray-400 mb-1">RESOLUSI 2026</p>
+                                <p class="text-sm font-medium text-primary">Beli rumah sendiri.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 14. Grace (21 Juli 2005) -->
+                    <div class="bg-white rounded-xl shadow-lg border border-gray-100 overflow-hidden hover:shadow-xl transition-shadow flex flex-col">
+                        <div class="h-64 bg-gray-200 relative overflow-hidden">
+                             <img src="/image/member_grace.jpg" class="w-full h-full object-cover object-center" alt="Grace">
+                             <div class="absolute top-2 right-2 bg-white/90 px-3 py-1 rounded-full text-xs font-bold text-primary shadow-sm">21 Jul</div>
+                        </div>
+                         <div class="p-6 flex flex-col flex-grow">
+                             <div class="flex justify-between items-start mb-2">
+                                <h3 class="font-bold text-xl text-charcoal">Grace</h3>
+                                <span class="text-xs font-mono text-gray-400 bg-gray-100 px-2 py-1 rounded">20 th</span>
+                            </div>
+                            <p class="text-gray-600 text-sm italic mb-4">"Anggun sesuai namanya."</p>
+                            <div class="mt-auto pt-4 border-t border-gray-100">
+                                <p class="text-[10px] uppercase tracking-widest text-gray-400 mb-1">RESOLUSI 2026</p>
+                                <p class="text-sm font-medium text-primary">IPK 4.0.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 15. Kezia (23 Agustus 2006) -->
+                    <div class="bg-white rounded-xl shadow-lg border border-gray-100 overflow-hidden hover:shadow-xl transition-shadow flex flex-col">
+                        <div class="h-64 bg-gray-200 relative overflow-hidden">
+                             <img src="/image/member_kezia.jpg" class="w-full h-full object-cover object-center" alt="Kezia">
+                             <div class="absolute top-2 right-2 bg-white/90 px-3 py-1 rounded-full text-xs font-bold text-primary shadow-sm">23 Agu</div>
+                        </div>
+                        <div class="p-6 flex flex-col flex-grow">
+                            <div class="flex justify-between items-start mb-2">
+                                <h3 class="font-bold text-xl text-charcoal">Kezia</h3>
+                                <span class="text-xs font-mono text-gray-400 bg-gray-100 px-2 py-1 rounded">19 th</span>
+                            </div>
+                            <p class="text-gray-600 text-sm italic mb-4">"Humble but fierce."</p>
+                            <div class="mt-auto pt-4 border-t border-gray-100">
+                                <p class="text-[10px] uppercase tracking-widest text-gray-400 mb-1">RESOLUSI 2026</p>
+                                <p class="text-sm font-medium text-primary">Mulai bisnis kecil.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 16. Ray (2 September 2007) -->
+                    <div class="bg-white rounded-xl shadow-lg border border-gray-100 overflow-hidden hover:shadow-xl transition-shadow flex flex-col">
+                        <div class="h-64 bg-gray-200 relative overflow-hidden">
+                             <img src="/image/member_ray.jpg" class="w-full h-full object-cover object-center" alt="Ray">
+                             <div class="absolute top-2 right-2 bg-white/90 px-3 py-1 rounded-full text-xs font-bold text-primary shadow-sm">2 Sep</div>
+                        </div>
+                        <div class="p-6 flex flex-col flex-grow">
+                             <div class="flex justify-between items-start mb-2">
+                                <h3 class="font-bold text-xl text-charcoal">Ray</h3>
+                                <span class="text-xs font-mono text-gray-400 bg-gray-100 px-2 py-1 rounded">18 th</span>
+                            </div>
+                            <p class="text-gray-600 text-sm italic mb-4">"Cool calm collected."</p>
+                            <div class="mt-auto pt-4 border-t border-gray-100">
+                                <p class="text-[10px] uppercase tracking-widest text-gray-400 mb-1">RESOLUSI 2026</p>
+                                <p class="text-sm font-medium text-primary">Masuk universitas impian.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 17. Putra (6 September 2005) -->
+                    <div class="bg-white rounded-xl shadow-lg border border-gray-100 overflow-hidden hover:shadow-xl transition-shadow flex flex-col">
+                        <div class="h-64 bg-gray-200 relative overflow-hidden">
+                             <img src="/image/member_putra.jpg" class="w-full h-full object-cover object-center" alt="Putra">
+                             <div class="absolute top-2 right-2 bg-white/90 px-3 py-1 rounded-full text-xs font-bold text-primary shadow-sm">6 Sep</div>
+                        </div>
+                        <div class="p-6 flex flex-col flex-grow">
+                            <div class="flex justify-between items-start mb-2">
+                                <h3 class="font-bold text-xl text-charcoal">Putra</h3>
+                                <span class="text-xs font-mono text-gray-400 bg-gray-100 px-2 py-1 rounded">20 th</span>
+                            </div>
+                            <p class="text-gray-600 text-sm italic mb-4">"Si Paling Sporty."</p>
+                            <div class="mt-auto pt-4 border-t border-gray-100">
+                                <p class="text-[10px] uppercase tracking-widest text-gray-400 mb-1">RESOLUSI 2026</p>
+                                <p class="text-sm font-medium text-primary">Menang turnamen.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 18. Tata (11 September 2011) -->
+                     <div class="bg-white rounded-xl shadow-lg border border-gray-100 overflow-hidden hover:shadow-xl transition-shadow flex flex-col">
+                        <div class="h-64 bg-gray-200 relative overflow-hidden">
+                             <img src="/image/member_tata.jpg" class="w-full h-full object-cover object-center" alt="Tata">
+                             <div class="absolute top-2 right-2 bg-white/90 px-3 py-1 rounded-full text-xs font-bold text-primary shadow-sm">11 Sep</div>
+                        </div>
+                        <div class="p-6 flex flex-col flex-grow">
+                            <div class="flex justify-between items-start mb-2">
+                                <h3 class="font-bold text-xl text-charcoal">Tata</h3>
+                                <span class="text-xs font-mono text-gray-400 bg-gray-100 px-2 py-1 rounded">14 th</span>
+                            </div>
+                            <p class="text-gray-600 text-sm italic mb-4">"The baby of the group."</p>
+                            <div class="mt-auto pt-4 border-t border-gray-100">
+                                <p class="text-[10px] uppercase tracking-widest text-gray-400 mb-1">RESOLUSI 2026</p>
+                                <p class="text-sm font-medium text-primary">Tambah tinggi badan.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 19. Dio (2 Oktober 2009) -->
+                    <div class="bg-white rounded-xl shadow-lg border border-gray-100 overflow-hidden hover:shadow-xl transition-shadow flex flex-col">
+                        <div class="h-64 bg-gray-200 relative overflow-hidden">
+                             <img src="/image/member_dio.jpg" class="w-full h-full object-cover object-center" alt="Dio">
+                             <div class="absolute top-2 right-2 bg-white/90 px-3 py-1 rounded-full text-xs font-bold text-primary shadow-sm">2 Okt</div>
+                        </div>
+                        <div class="p-6 flex flex-col flex-grow">
+                            <div class="flex justify-between items-start mb-2">
+                                <h3 class="font-bold text-xl text-charcoal">Dio</h3>
+                                <span class="text-xs font-mono text-gray-400 bg-gray-100 px-2 py-1 rounded">16 th</span>
+                            </div>
+                             <p class="text-gray-600 text-sm italic mb-4">"Dio ganteng 😎"</p>
+                            <div class="mt-auto pt-4 border-t border-gray-100">
+                                <p class="text-[10px] uppercase tracking-widest text-gray-400 mb-1">RESOLUSI 2026</p>
+                                <p class="text-sm font-medium text-primary">Pertahankan kegantengan.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 20. Nanas (15 Oktober 2008) -->
+                    <div class="bg-white rounded-xl shadow-lg border border-gray-100 overflow-hidden hover:shadow-xl transition-shadow flex flex-col">
+                        <div class="h-64 bg-gray-200 relative overflow-hidden">
+                             <img src="/profile/nanas.jpg" class="w-full h-full object-cover object-center" alt="Nanas">
+                             <div class="absolute top-2 right-2 bg-white/90 px-3 py-1 rounded-full text-xs font-bold text-primary shadow-sm">15 Okt</div>
+                        </div>
+                        <div class="p-6 flex flex-col flex-grow">
+                             <div class="flex justify-between items-start mb-2">
+                                <h3 class="font-bold text-xl text-charcoal">Nanas</h3>
+                                <span class="text-xs font-mono text-gray-400 bg-gray-100 px-2 py-1 rounded">17 th</span>
+                            </div>
+                            <p class="text-gray-600 text-sm italic mb-4">"Life is a chance, do your best!"</p>
+                            <div class="mt-auto pt-4 border-t border-gray-100">
+                                <p class="text-[10px] uppercase tracking-widest text-gray-400 mb-1">RESOLUSI 2026</p>
+                                <p class="text-sm font-medium text-primary">Hidup lebih aktif dan sehat.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 21. Gwen (16 Oktober 2007) -->
+                     <div class="bg-white rounded-xl shadow-lg border border-gray-100 overflow-hidden hover:shadow-xl transition-shadow flex flex-col">
+                        <div class="h-64 bg-gray-200 relative overflow-hidden">
+                             <img src="/image/member_gwen.jpg" class="w-full h-full object-cover object-center" alt="Gwen">
+                             <div class="absolute top-2 right-2 bg-white/90 px-3 py-1 rounded-full text-xs font-bold text-primary shadow-sm">16 Okt</div>
+                        </div>
+                         <div class="p-6 flex flex-col flex-grow">
+                             <div class="flex justify-between items-start mb-2">
+                                <h3 class="font-bold text-xl text-charcoal">Gwen</h3>
+                                <span class="text-xs font-mono text-gray-400 bg-gray-100 px-2 py-1 rounded">18 th</span>
+                            </div>
+                            <p class="text-gray-600 text-sm italic mb-4">"Spider-Gwen in real life."</p>
+                            <div class="mt-auto pt-4 border-t border-gray-100">
+                                <p class="text-[10px] uppercase tracking-widest text-gray-400 mb-1">RESOLUSI 2026</p>
+                                <p class="text-sm font-medium text-primary">Nonton konser bias.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 22. Angelia (29 Oktober 2004) -->
+                    <div class="bg-white rounded-xl shadow-lg border border-gray-100 overflow-hidden hover:shadow-xl transition-shadow flex flex-col">
+                         <div class="h-64 bg-gray-200 relative overflow-hidden">
+                             <img src="/image/member_angelia.jpg" class="w-full h-full object-cover object-center" alt="Angelia">
+                             <div class="absolute top-2 right-2 bg-white/90 px-3 py-1 rounded-full text-xs font-bold text-primary shadow-sm">29 Okt</div>
+                        </div>
+                        <div class="p-6 flex flex-col flex-grow">
+                            <div class="flex justify-between items-start mb-2">
+                                <h3 class="font-bold text-xl text-charcoal">Angelia</h3>
+                                <span class="text-xs font-mono text-gray-400 bg-gray-100 px-2 py-1 rounded">21 th</span>
+                            </div>
+                            <p class="text-gray-600 text-sm italic mb-4">"The Angel of Peres."</p>
+                             <div class="mt-auto pt-4 border-t border-gray-100">
+                                <p class="text-[10px] uppercase tracking-widest text-gray-400 mb-1">RESOLUSI 2026</p>
+                                <p class="text-sm font-medium text-primary">Traveling ke luar negeri.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 23. Ekky (31 Oktober 2009) -->
+                    <div class="bg-white rounded-xl shadow-lg border border-gray-100 overflow-hidden hover:shadow-xl transition-shadow flex flex-col">
+                        <div class="h-64 bg-gray-200 relative overflow-hidden">
+                             <img src="/image/member_ekky.jpg" class="w-full h-full object-cover object-center" alt="Ekky">
+                             <div class="absolute top-2 right-2 bg-white/90 px-3 py-1 rounded-full text-xs font-bold text-primary shadow-sm">31 Okt</div>
+                        </div>
+                        <div class="p-6 flex flex-col flex-grow">
+                            <div class="flex justify-between items-start mb-2">
+                                <h3 class="font-bold text-xl text-charcoal">Ekky</h3>
+                                <span class="text-xs font-mono text-gray-400 bg-gray-100 px-2 py-1 rounded">16 th</span>
+                            </div>
+                            <p class="text-gray-600 text-sm italic mb-4">"Halloween baby!"</p>
+                            <div class="mt-auto pt-4 border-t border-gray-100">
+                                <p class="text-[10px] uppercase tracking-widest text-gray-400 mb-1">RESOLUSI 2026</p>
+                                <p class="text-sm font-medium text-primary">Belajar coding.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 24. Belinda (10 Desember 2009) -->
+                     <div class="bg-white rounded-xl shadow-lg border border-gray-100 overflow-hidden hover:shadow-xl transition-shadow flex flex-col">
+                        <div class="h-64 bg-gray-200 relative overflow-hidden">
+                             <img src="/profile/belinda.jpeg" class="w-full h-full object-cover object-center" alt="Belinda">
+                             <div class="absolute top-2 right-2 bg-white/90 px-3 py-1 rounded-full text-xs font-bold text-primary shadow-sm">10 Des</div>
+                        </div>
+                        <div class="p-6 flex flex-col flex-grow">
+                            <div class="flex justify-between items-start mb-2">
+                                <h3 class="font-bold text-xl text-charcoal">Belinda</h3>
+                                <span class="text-xs font-mono text-gray-400 bg-gray-100 px-2 py-1 rounded">16 th</span>
+                            </div>
+                            <p class="text-gray-600 text-sm italic mb-4">"Kelompok PERES ditemukan bukan sebuah kebetulan, tapi rencana Tuhan~"</p>
+                            <div class="mt-auto pt-4 border-t border-gray-100">
+                                <p class="text-[10px] uppercase tracking-widest text-gray-400 mb-1">RESOLUSI 2026</p>
+                                <p class="text-sm font-medium text-primary">Menyerahkan semua masalah dan hidup kepada Tuhan sepenuhnya.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 25. Joylynn (27 Desember 2008) -->
+                    <div class="bg-white rounded-xl shadow-lg border border-gray-100 overflow-hidden hover:shadow-xl transition-shadow flex flex-col">
+                        <div class="h-64 bg-gray-200 relative overflow-hidden">
+                             <img src="/image/member_joylynn.jpg" class="w-full h-full object-cover object-center" alt="Joylynn">
+                             <div class="absolute top-2 right-2 bg-white/90 px-3 py-1 rounded-full text-xs font-bold text-primary shadow-sm">27 Des</div>
+                        </div>
+                        <div class="p-6 flex flex-col flex-grow">
+                             <div class="flex justify-between items-start mb-2">
+                                <h3 class="font-bold text-xl text-charcoal">Joylynn</h3>
+                                <span class="text-xs font-mono text-gray-400 bg-gray-100 px-2 py-1 rounded">17 th</span>
+                            </div>
+                            <p class="text-gray-600 text-sm italic mb-4">"Joy to the world."</p>
+                            <div class="mt-auto pt-4 border-t border-gray-100">
+                                <p class="text-[10px] uppercase tracking-widest text-gray-400 mb-1">RESOLUSI 2026</p>
+                                <p class="text-sm font-medium text-primary">Lebih rajin menabung.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 26. Sharon (28 Desember 2007) -->
+                     <div class="bg-white rounded-xl shadow-lg border border-gray-100 overflow-hidden hover:shadow-xl transition-shadow flex flex-col">
+                        <div class="h-64 bg-gray-200 relative overflow-hidden">
+                             <img src="/image/member_sharon.jpg" class="w-full h-full object-cover object-center" alt="Sharon">
+                             <div class="absolute top-2 right-2 bg-white/90 px-3 py-1 rounded-full text-xs font-bold text-primary shadow-sm">28 Des</div>
+                        </div>
+                         <div class="p-6 flex flex-col flex-grow">
+                             <div class="flex justify-between items-start mb-2">
+                                <h3 class="font-bold text-xl text-charcoal">Sharon</h3>
+                                <span class="text-xs font-mono text-gray-400 bg-gray-100 px-2 py-1 rounded">18 th</span>
+                            </div>
+                            <p class="text-gray-600 text-sm italic mb-4">"Be better this year"</p>
+                             <div class="mt-auto pt-4 border-t border-gray-100">
+                                <p class="text-[10px] uppercase tracking-widest text-gray-400 mb-1">RESOLUSI 2026</p>
+                                <p class="text-sm font-medium text-primary">Mengatur waktu lebih rapi supaya punya porsi kegiatan dan kesibukan yang seimbang. Semakin dekat dan setia bersandar pada Tuhan. Lebih banyak melayani Tuhan baik diluar gereja ataupun di dalam gereja.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                     <!-- 27. Matthew (28 Desember 2009) -->
+                    <div class="bg-white rounded-xl shadow-lg border border-gray-100 overflow-hidden hover:shadow-xl transition-shadow flex flex-col">
+                        <div class="h-64 bg-gray-200 relative overflow-hidden">
+                             <img src="/image/member_matthew.jpg" class="w-full h-full object-cover object-center" alt="Matthew">
+                             <div class="absolute top-2 right-2 bg-white/90 px-3 py-1 rounded-full text-xs font-bold text-primary shadow-sm">28 Des</div>
+                        </div>
+                         <div class="p-6 flex flex-col flex-grow">
+                            <div class="flex justify-between items-start mb-2">
+                                <h3 class="font-bold text-xl text-charcoal">Matthew</h3>
+                                <span class="text-xs font-mono text-gray-400 bg-gray-100 px-2 py-1 rounded">16 th</span>
+                            </div>
+                            <p class="text-gray-600 text-sm italic mb-4">"Tutup tahun dengan gaya."</p>
+                             <div class="mt-auto pt-4 border-t border-gray-100">
+                                <p class="text-[10px] uppercase tracking-widest text-gray-400 mb-1">RESOLUSI 2026</p>
+                                <p class="text-sm font-medium text-primary">Jadi lebih aktif di gereja.</p>
                             </div>
                         </div>
                     </div>
