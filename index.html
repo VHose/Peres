@@ -562,21 +562,24 @@
 
                         <!-- Design 13: Instant Photo Strip -->
                         <div class="break-inside-avoid relative h-96 w-full p-2">
+                            <!-- Strip 1 (Left) -->
                             <div class="absolute top-12 -left-2 bg-gray-900 p-2 shadow-lg -rotate-12 z-10 w-28">
-                                <img src="/image/strip1.jpg" class="w-full aspect-[3/2] object-cover border-2 border-white mb-2">
-                                <img src="/image/strip2.jpg" class="w-full aspect-[3/2] object-cover border-2 border-white mb-2">
-                                <img src="/image/strip3.jpg" class="w-full aspect-[3/2] object-cover border-2 border-white">
+                                <img src="/gambar/k1.jpg" class="w-full aspect-[3/2] object-cover border-2 border-white mb-2">
+                                <img src="/gambar/ACT.jpg" class="w-full aspect-[3/2] object-cover border-2 border-white mb-2">
+                                <img src="/gambar/domba.jpg" class="w-full aspect-[3/2] object-cover border-2 border-white">
                             </div>
+                            <!-- Strip 2 (Center) -->
                             <div class="absolute top-0 left-1/2 -translate-x-1/2 bg-gray-900 p-2 shadow-2xl rotate-2 z-30 w-32">
-                                <img src="/image/piting1.jpg" class="w-full aspect-[3/2] object-cover border-2 border-white mb-2">
-                                <img src="/image/piting2.jpg" class="w-full aspect-[3/2] object-cover border-2 border-white mb-2">
-                                <img src="/image/piting3.jpg" class="w-full aspect-[3/2] object-cover border-2 border-white">
+                                <img src="/gambar/piting1.jpg" class="w-full aspect-[3/2] object-cover border-2 border-white mb-2">
+                                <img src="/gambar/piting2.jpg" class="w-full aspect-[3/2] object-cover border-2 border-white mb-2">
+                                <img src="/gambar/piting3.jpg" class="w-full aspect-[3/2] object-cover border-2 border-white">
                                 <p class="text-white text-center font-handwriting text-xs pt-1">Photobooth!</p>
                             </div>
+                            <!-- Strip 3 (Right) -->
                             <div class="absolute top-8 -right-2 bg-gray-900 p-2 shadow-lg rotate-12 z-20 w-28">
-                                <img src="/image/strip3.jpg" class="w-full aspect-[3/2] object-cover border-2 border-white mb-2">
-                                <img src="/image/strip1.jpg" class="w-full aspect-[3/2] object-cover border-2 border-white mb-2">
-                                <img src="/image/strip2.jpg" class="w-full aspect-[3/2] object-cover border-2 border-white">
+                                <img src="/gambar/l.jpg" class="w-full aspect-[3/2] object-cover border-2 border-white mb-2">
+                                <img src="/gambar/nametag.jpg" class="w-full aspect-[3/2] object-cover border-2 border-white mb-2">
+                                <img src="/gambar/k2.jpg" class="w-full aspect-[3/2] object-cover border-2 border-white">
                             </div>
                         </div>
 
@@ -590,9 +593,9 @@
                         <!-- Design 15: Map Fragment (UPDATED with Real Map Look & Photo) -->
                         <div class="break-inside-avoid bg-white p-2 shadow-md -rotate-2 border-4 border-white">
                             <div class="w-full h-56 bg-blue-50 relative overflow-hidden rounded-sm group">
-                                <img src="/image/maps_lokasi.jpg" class="w-full h-full object-cover opacity-90 group-hover:scale-110 transition-transform duration-700" alt="Map Location">
+                                <img src="/gambar/maps.png" class="w-full h-full object-cover opacity-90 group-hover:scale-110 transition-transform duration-700" alt="Map Location">
                                 <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-white p-1.5 shadow-xl rotate-3 w-24">
-                                    <img src="/image/we_here.jpg" class="w-full aspect-square object-cover">
+                                    <img src="/gambar/saat.jpg" class="w-full aspect-square object-cover">
                                 </div>
                                 <span class="material-symbols-outlined absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-16 text-red-600 text-4xl drop-shadow-md animate-bounce">location_on</span>
                             </div>
@@ -658,12 +661,13 @@
                 <!-- NEW SQUAD GRID -->
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
                     <!-- Template Kartu Member (Loop untuk setiap orang) -->
-                    <!-- Data diurutkan berdasarkan ulang tahun (Jan - Des) -->
+                    <!-- Updated Image Class: object-top (Focus on Face) -->
+                    <!-- Updated Container Class: h-[500px] md:h-[400px] (Extra tall on Mobile) -->
 
                     <!-- 1. Justin (3 Maret 2008) -->
                     <div class="bg-white rounded-xl shadow-lg border border-gray-100 overflow-hidden hover:shadow-xl transition-shadow flex flex-col">
-                        <div class="h-64 bg-gray-200 relative overflow-hidden">
-                             <img src="/image/member_justin.jpg" class="w-full h-full object-cover object-center" alt="Justin">
+                        <div class="h-[500px] md:h-[400px] bg-gray-200 relative overflow-hidden">
+                             <img src="/image/member_justin.jpg" class="w-full h-full object-cover object-top" alt="Justin">
                              <div class="absolute top-2 right-2 bg-white/90 px-3 py-1 rounded-full text-xs font-bold text-primary shadow-sm">3 Mar</div>
                         </div>
                         <div class="p-6 flex flex-col flex-grow">
@@ -681,8 +685,8 @@
 
                     <!-- 2. Alvin (8 Maret 2007) -->
                     <div class="bg-white rounded-xl shadow-lg border border-gray-100 overflow-hidden hover:shadow-xl transition-shadow flex flex-col">
-                        <div class="h-64 bg-gray-200 relative overflow-hidden">
-                             <img src="/profile/alvin.jpg" class="w-full h-full object-cover object-center" alt="Alvin">
+                        <div class="h-[500px] md:h-[400px] bg-gray-200 relative overflow-hidden">
+                             <img src="/profile/alvin.jpg" class="w-full h-full object-cover object-top" alt="Alvin">
                              <div class="absolute top-2 right-2 bg-white/90 px-3 py-1 rounded-full text-xs font-bold text-primary shadow-sm">8 Mar</div>
                         </div>
                         <div class="p-6 flex flex-col flex-grow">
@@ -700,8 +704,8 @@
 
                     <!-- 3. Pierson (28 Maret 2008) -->
                     <div class="bg-white rounded-xl shadow-lg border border-gray-100 overflow-hidden hover:shadow-xl transition-shadow flex flex-col">
-                         <div class="h-64 bg-gray-200 relative overflow-hidden">
-                             <img src="/image/member_pierson.jpg" class="w-full h-full object-cover object-center" alt="Pierson">
+                         <div class="h-[500px] md:h-[400px] bg-gray-200 relative overflow-hidden">
+                             <img src="/image/member_pierson.jpg" class="w-full h-full object-cover object-top" alt="Pierson">
                              <div class="absolute top-2 right-2 bg-white/90 px-3 py-1 rounded-full text-xs font-bold text-primary shadow-sm">28 Mar</div>
                         </div>
                         <div class="p-6 flex flex-col flex-grow">
@@ -718,9 +722,9 @@
                     </div>
 
                     <!-- 4. Samantha (31 Maret 2002) -->
-                     <div class="bg-white rounded-xl shadow-lg border border-gray-100 overflow-hidden hover:shadow-xl transition-shadow flex flex-col">
-                        <div class="h-64 bg-gray-200 relative overflow-hidden">
-                             <img src="/image/member_samantha.jpg" class="w-full h-full object-cover object-center" alt="Samantha">
+                      <div class="bg-white rounded-xl shadow-lg border border-gray-100 overflow-hidden hover:shadow-xl transition-shadow flex flex-col">
+                        <div class="h-[500px] md:h-[400px] bg-gray-200 relative overflow-hidden">
+                             <img src="/image/member_samantha.jpg" class="w-full h-full object-cover object-top" alt="Samantha">
                              <div class="absolute top-2 right-2 bg-white/90 px-3 py-1 rounded-full text-xs font-bold text-primary shadow-sm">31 Mar</div>
                         </div>
                         <div class="p-6 flex flex-col flex-grow">
@@ -737,9 +741,9 @@
                     </div>
 
                     <!-- 5. Hose (4 Mei 2006) -->
-                     <div class="bg-white rounded-xl shadow-lg border border-gray-100 overflow-hidden hover:shadow-xl transition-shadow flex flex-col">
-                        <div class="h-64 bg-gray-200 relative overflow-hidden">
-                             <img src="/profile/hose.jpg" class="w-full h-full object-cover object-center" alt="Hose">
+                      <div class="bg-white rounded-xl shadow-lg border border-gray-100 overflow-hidden hover:shadow-xl transition-shadow flex flex-col">
+                        <div class="h-[500px] md:h-[400px] bg-gray-200 relative overflow-hidden">
+                             <img src="/profile/hose.jpg" class="w-full h-full object-cover object-top" alt="Hose">
                              <div class="absolute top-2 right-2 bg-white/90 px-3 py-1 rounded-full text-xs font-bold text-primary shadow-sm">4 Mei</div>
                         </div>
                          <div class="p-6 flex flex-col flex-grow">
@@ -757,8 +761,8 @@
 
                     <!-- 6. Darrel (8 Mei 2009) -->
                     <div class="bg-white rounded-xl shadow-lg border border-gray-100 overflow-hidden hover:shadow-xl transition-shadow flex flex-col">
-                        <div class="h-64 bg-gray-200 relative overflow-hidden">
-                             <img src="/image/member_darrel.jpg" class="w-full h-full object-cover object-center" alt="Darrel">
+                        <div class="h-[500px] md:h-[400px] bg-gray-200 relative overflow-hidden">
+                             <img src="/image/member_darrel.jpg" class="w-full h-full object-cover object-top" alt="Darrel">
                              <div class="absolute top-2 right-2 bg-white/90 px-3 py-1 rounded-full text-xs font-bold text-primary shadow-sm">8 Mei</div>
                         </div>
                         <div class="p-6 flex flex-col flex-grow">
@@ -776,8 +780,8 @@
 
                     <!-- 7. Key (20 Mei 2011) -->
                     <div class="bg-white rounded-xl shadow-lg border border-gray-100 overflow-hidden hover:shadow-xl transition-shadow flex flex-col">
-                         <div class="h-64 bg-gray-200 relative overflow-hidden">
-                             <img src="/image/member_key.jpg" class="w-full h-full object-cover object-center" alt="Key">
+                         <div class="h-[500px] md:h-[400px] bg-gray-200 relative overflow-hidden">
+                             <img src="/image/member_key.jpg" class="w-full h-full object-cover object-top" alt="Key">
                              <div class="absolute top-2 right-2 bg-white/90 px-3 py-1 rounded-full text-xs font-bold text-primary shadow-sm">20 Mei</div>
                         </div>
                          <div class="p-6 flex flex-col flex-grow">
@@ -795,8 +799,8 @@
 
                     <!-- 8. Vivi (23 Mei 2005) -->
                     <div class="bg-white rounded-xl shadow-lg border border-gray-100 overflow-hidden hover:shadow-xl transition-shadow flex flex-col">
-                        <div class="h-64 bg-gray-200 relative overflow-hidden">
-                             <img src="/profile/vivi.webp" class="w-full h-full object-cover object-center" alt="Vivi">
+                        <div class="h-[500px] md:h-[400px] bg-gray-200 relative overflow-hidden">
+                             <img src="/profile/vivi.webp" class="w-full h-full object-cover object-top" alt="Vivi">
                              <div class="absolute top-2 right-2 bg-white/90 px-3 py-1 rounded-full text-xs font-bold text-primary shadow-sm">23 Mei</div>
                         </div>
                         <div class="p-6 flex flex-col flex-grow">
@@ -814,8 +818,8 @@
 
                     <!-- 9. Angkasa (3 Juni 2008) -->
                     <div class="bg-white rounded-xl shadow-lg border border-gray-100 overflow-hidden hover:shadow-xl transition-shadow flex flex-col">
-                        <div class="h-64 bg-gray-200 relative overflow-hidden">
-                             <img src="/profile/angkasa.jpg" class="w-full h-full object-cover object-center" alt="Angkasa">
+                        <div class="h-[500px] md:h-[400px] bg-gray-200 relative overflow-hidden">
+                             <img src="/profile/angkasa.jpg" class="w-full h-full object-cover object-top" alt="Angkasa">
                              <div class="absolute top-2 right-2 bg-white/90 px-3 py-1 rounded-full text-xs font-bold text-primary shadow-sm">3 Jun</div>
                         </div>
                         <div class="p-6 flex flex-col flex-grow">
@@ -832,9 +836,9 @@
                     </div>
 
                     <!-- 10. Jere (3 Juni 2007) -->
-                     <div class="bg-white rounded-xl shadow-lg border border-gray-100 overflow-hidden hover:shadow-xl transition-shadow flex flex-col">
-                        <div class="h-64 bg-gray-200 relative overflow-hidden">
-                             <img src="/image/member_jere.jpg" class="w-full h-full object-cover object-center" alt="Jere">
+                      <div class="bg-white rounded-xl shadow-lg border border-gray-100 overflow-hidden hover:shadow-xl transition-shadow flex flex-col">
+                        <div class="h-[500px] md:h-[400px] bg-gray-200 relative overflow-hidden">
+                             <img src="/image/member_jere.jpg" class="w-full h-full object-cover object-top" alt="Jere">
                              <div class="absolute top-2 right-2 bg-white/90 px-3 py-1 rounded-full text-xs font-bold text-primary shadow-sm">3 Jun</div>
                         </div>
                         <div class="p-6 flex flex-col flex-grow">
@@ -851,9 +855,9 @@
                     </div>
 
                     <!-- 11. Rachel (24 Juni 2010) -->
-                     <div class="bg-white rounded-xl shadow-lg border border-gray-100 overflow-hidden hover:shadow-xl transition-shadow flex flex-col">
-                        <div class="h-64 bg-gray-200 relative overflow-hidden">
-                             <img src="/image/member_rachel.jpg" class="w-full h-full object-cover object-center" alt="Rachel">
+                      <div class="bg-white rounded-xl shadow-lg border border-gray-100 overflow-hidden hover:shadow-xl transition-shadow flex flex-col">
+                        <div class="h-[500px] md:h-[400px] bg-gray-200 relative overflow-hidden">
+                             <img src="/image/member_rachel.jpg" class="w-full h-full object-cover object-top" alt="Rachel">
                              <div class="absolute top-2 right-2 bg-white/90 px-3 py-1 rounded-full text-xs font-bold text-primary shadow-sm">24 Jun</div>
                         </div>
                         <div class="p-6 flex flex-col flex-grow">
@@ -871,8 +875,8 @@
 
                     <!-- 12. Orianna (29 Juni 2009) -->
                     <div class="bg-white rounded-xl shadow-lg border border-gray-100 overflow-hidden hover:shadow-xl transition-shadow flex flex-col">
-                        <div class="h-64 bg-gray-200 relative overflow-hidden">
-                             <img src="/image/member_orianna.jpg" class="w-full h-full object-cover object-center" alt="Orianna">
+                        <div class="h-[500px] md:h-[400px] bg-gray-200 relative overflow-hidden">
+                             <img src="/image/member_orianna.jpg" class="w-full h-full object-cover object-top" alt="Orianna">
                              <div class="absolute top-2 right-2 bg-white/90 px-3 py-1 rounded-full text-xs font-bold text-primary shadow-sm">29 Jun</div>
                         </div>
                         <div class="p-6 flex flex-col flex-grow">
@@ -889,9 +893,9 @@
                     </div>
 
                     <!-- 13. Nathan (17 Juli 2000) -->
-                     <div class="bg-white rounded-xl shadow-lg border border-gray-100 overflow-hidden hover:shadow-xl transition-shadow flex flex-col">
-                        <div class="h-64 bg-gray-200 relative overflow-hidden">
-                             <img src="/image/member_nathan.jpg" class="w-full h-full object-cover object-center" alt="Nathan">
+                      <div class="bg-white rounded-xl shadow-lg border border-gray-100 overflow-hidden hover:shadow-xl transition-shadow flex flex-col">
+                        <div class="h-[500px] md:h-[400px] bg-gray-200 relative overflow-hidden">
+                             <img src="/image/member_nathan.jpg" class="w-full h-full object-cover object-top" alt="Nathan">
                              <div class="absolute top-2 right-2 bg-white/90 px-3 py-1 rounded-full text-xs font-bold text-primary shadow-sm">17 Jul</div>
                         </div>
                         <div class="p-6 flex flex-col flex-grow">
@@ -909,8 +913,8 @@
 
                     <!-- 14. Grace (21 Juli 2005) -->
                     <div class="bg-white rounded-xl shadow-lg border border-gray-100 overflow-hidden hover:shadow-xl transition-shadow flex flex-col">
-                        <div class="h-64 bg-gray-200 relative overflow-hidden">
-                             <img src="/image/member_grace.jpg" class="w-full h-full object-cover object-center" alt="Grace">
+                        <div class="h-[500px] md:h-[400px] bg-gray-200 relative overflow-hidden">
+                             <img src="/image/member_grace.jpg" class="w-full h-full object-cover object-top" alt="Grace">
                              <div class="absolute top-2 right-2 bg-white/90 px-3 py-1 rounded-full text-xs font-bold text-primary shadow-sm">21 Jul</div>
                         </div>
                          <div class="p-6 flex flex-col flex-grow">
@@ -928,8 +932,8 @@
 
                     <!-- 15. Kezia (23 Agustus 2006) -->
                     <div class="bg-white rounded-xl shadow-lg border border-gray-100 overflow-hidden hover:shadow-xl transition-shadow flex flex-col">
-                        <div class="h-64 bg-gray-200 relative overflow-hidden">
-                             <img src="/image/member_kezia.jpg" class="w-full h-full object-cover object-center" alt="Kezia">
+                        <div class="h-[500px] md:h-[400px] bg-gray-200 relative overflow-hidden">
+                             <img src="/image/member_kezia.jpg" class="w-full h-full object-cover object-top" alt="Kezia">
                              <div class="absolute top-2 right-2 bg-white/90 px-3 py-1 rounded-full text-xs font-bold text-primary shadow-sm">23 Agu</div>
                         </div>
                         <div class="p-6 flex flex-col flex-grow">
@@ -947,8 +951,8 @@
 
                     <!-- 16. Ray (2 September 2007) -->
                     <div class="bg-white rounded-xl shadow-lg border border-gray-100 overflow-hidden hover:shadow-xl transition-shadow flex flex-col">
-                        <div class="h-64 bg-gray-200 relative overflow-hidden">
-                             <img src="/image/member_ray.jpg" class="w-full h-full object-cover object-center" alt="Ray">
+                        <div class="h-[500px] md:h-[400px] bg-gray-200 relative overflow-hidden">
+                             <img src="/image/member_ray.jpg" class="w-full h-full object-cover object-top" alt="Ray">
                              <div class="absolute top-2 right-2 bg-white/90 px-3 py-1 rounded-full text-xs font-bold text-primary shadow-sm">2 Sep</div>
                         </div>
                         <div class="p-6 flex flex-col flex-grow">
@@ -966,8 +970,8 @@
 
                     <!-- 17. Putra (6 September 2005) -->
                     <div class="bg-white rounded-xl shadow-lg border border-gray-100 overflow-hidden hover:shadow-xl transition-shadow flex flex-col">
-                        <div class="h-64 bg-gray-200 relative overflow-hidden">
-                             <img src="/image/member_putra.jpg" class="w-full h-full object-cover object-center" alt="Putra">
+                        <div class="h-[500px] md:h-[400px] bg-gray-200 relative overflow-hidden">
+                             <img src="/image/member_putra.jpg" class="w-full h-full object-cover object-top" alt="Putra">
                              <div class="absolute top-2 right-2 bg-white/90 px-3 py-1 rounded-full text-xs font-bold text-primary shadow-sm">6 Sep</div>
                         </div>
                         <div class="p-6 flex flex-col flex-grow">
@@ -984,9 +988,9 @@
                     </div>
 
                     <!-- 18. Tata (11 September 2011) -->
-                     <div class="bg-white rounded-xl shadow-lg border border-gray-100 overflow-hidden hover:shadow-xl transition-shadow flex flex-col">
-                        <div class="h-64 bg-gray-200 relative overflow-hidden">
-                             <img src="/image/member_tata.jpg" class="w-full h-full object-cover object-center" alt="Tata">
+                      <div class="bg-white rounded-xl shadow-lg border border-gray-100 overflow-hidden hover:shadow-xl transition-shadow flex flex-col">
+                        <div class="h-[500px] md:h-[400px] bg-gray-200 relative overflow-hidden">
+                             <img src="/image/member_tata.jpg" class="w-full h-full object-cover object-top" alt="Tata">
                              <div class="absolute top-2 right-2 bg-white/90 px-3 py-1 rounded-full text-xs font-bold text-primary shadow-sm">11 Sep</div>
                         </div>
                         <div class="p-6 flex flex-col flex-grow">
@@ -1004,8 +1008,8 @@
 
                     <!-- 19. Dio (2 Oktober 2009) -->
                     <div class="bg-white rounded-xl shadow-lg border border-gray-100 overflow-hidden hover:shadow-xl transition-shadow flex flex-col">
-                        <div class="h-64 bg-gray-200 relative overflow-hidden">
-                             <img src="/image/member_dio.jpg" class="w-full h-full object-cover object-center" alt="Dio">
+                        <div class="h-[500px] md:h-[400px] bg-gray-200 relative overflow-hidden">
+                             <img src="/image/member_dio.jpg" class="w-full h-full object-cover object-top" alt="Dio">
                              <div class="absolute top-2 right-2 bg-white/90 px-3 py-1 rounded-full text-xs font-bold text-primary shadow-sm">2 Okt</div>
                         </div>
                         <div class="p-6 flex flex-col flex-grow">
@@ -1023,8 +1027,8 @@
 
                     <!-- 20. Nanas (15 Oktober 2008) -->
                     <div class="bg-white rounded-xl shadow-lg border border-gray-100 overflow-hidden hover:shadow-xl transition-shadow flex flex-col">
-                        <div class="h-64 bg-gray-200 relative overflow-hidden">
-                             <img src="/profile/nanas.jpg" class="w-full h-full object-cover object-center" alt="Nanas">
+                        <div class="h-[500px] md:h-[400px] bg-gray-200 relative overflow-hidden">
+                             <img src="/profile/nanas.jpg" class="w-full h-full object-cover object-top" alt="Nanas">
                              <div class="absolute top-2 right-2 bg-white/90 px-3 py-1 rounded-full text-xs font-bold text-primary shadow-sm">15 Okt</div>
                         </div>
                         <div class="p-6 flex flex-col flex-grow">
@@ -1041,9 +1045,9 @@
                     </div>
 
                     <!-- 21. Gwen (16 Oktober 2007) -->
-                     <div class="bg-white rounded-xl shadow-lg border border-gray-100 overflow-hidden hover:shadow-xl transition-shadow flex flex-col">
-                        <div class="h-64 bg-gray-200 relative overflow-hidden">
-                             <img src="/image/member_gwen.jpg" class="w-full h-full object-cover object-center" alt="Gwen">
+                      <div class="bg-white rounded-xl shadow-lg border border-gray-100 overflow-hidden hover:shadow-xl transition-shadow flex flex-col">
+                        <div class="h-[500px] md:h-[400px] bg-gray-200 relative overflow-hidden">
+                             <img src="/image/member_gwen.jpg" class="w-full h-full object-cover object-top" alt="Gwen">
                              <div class="absolute top-2 right-2 bg-white/90 px-3 py-1 rounded-full text-xs font-bold text-primary shadow-sm">16 Okt</div>
                         </div>
                          <div class="p-6 flex flex-col flex-grow">
@@ -1061,8 +1065,8 @@
 
                     <!-- 22. Angelia (29 Oktober 2004) -->
                     <div class="bg-white rounded-xl shadow-lg border border-gray-100 overflow-hidden hover:shadow-xl transition-shadow flex flex-col">
-                         <div class="h-64 bg-gray-200 relative overflow-hidden">
-                             <img src="/image/member_angelia.jpg" class="w-full h-full object-cover object-center" alt="Angelia">
+                         <div class="h-[500px] md:h-[400px] bg-gray-200 relative overflow-hidden">
+                             <img src="/image/member_angelia.jpg" class="w-full h-full object-cover object-top" alt="Angelia">
                              <div class="absolute top-2 right-2 bg-white/90 px-3 py-1 rounded-full text-xs font-bold text-primary shadow-sm">29 Okt</div>
                         </div>
                         <div class="p-6 flex flex-col flex-grow">
@@ -1080,8 +1084,8 @@
 
                     <!-- 23. Ekky (31 Oktober 2009) -->
                     <div class="bg-white rounded-xl shadow-lg border border-gray-100 overflow-hidden hover:shadow-xl transition-shadow flex flex-col">
-                        <div class="h-64 bg-gray-200 relative overflow-hidden">
-                             <img src="/image/member_ekky.jpg" class="w-full h-full object-cover object-center" alt="Ekky">
+                        <div class="h-[500px] md:h-[400px] bg-gray-200 relative overflow-hidden">
+                             <img src="/image/member_ekky.jpg" class="w-full h-full object-cover object-top" alt="Ekky">
                              <div class="absolute top-2 right-2 bg-white/90 px-3 py-1 rounded-full text-xs font-bold text-primary shadow-sm">31 Okt</div>
                         </div>
                         <div class="p-6 flex flex-col flex-grow">
@@ -1098,9 +1102,9 @@
                     </div>
 
                     <!-- 24. Belinda (10 Desember 2009) -->
-                     <div class="bg-white rounded-xl shadow-lg border border-gray-100 overflow-hidden hover:shadow-xl transition-shadow flex flex-col">
-                        <div class="h-64 bg-gray-200 relative overflow-hidden">
-                             <img src="/profile/belinda.jpeg" class="w-full h-full object-cover object-center" alt="Belinda">
+                      <div class="bg-white rounded-xl shadow-lg border border-gray-100 overflow-hidden hover:shadow-xl transition-shadow flex flex-col">
+                        <div class="h-[500px] md:h-[400px] bg-gray-200 relative overflow-hidden">
+                             <img src="/profile/belinda.jpeg" class="w-full h-full object-cover object-top" alt="Belinda">
                              <div class="absolute top-2 right-2 bg-white/90 px-3 py-1 rounded-full text-xs font-bold text-primary shadow-sm">10 Des</div>
                         </div>
                         <div class="p-6 flex flex-col flex-grow">
@@ -1118,8 +1122,8 @@
 
                     <!-- 25. Joylynn (27 Desember 2008) -->
                     <div class="bg-white rounded-xl shadow-lg border border-gray-100 overflow-hidden hover:shadow-xl transition-shadow flex flex-col">
-                        <div class="h-64 bg-gray-200 relative overflow-hidden">
-                             <img src="/image/member_joylynn.jpg" class="w-full h-full object-cover object-center" alt="Joylynn">
+                        <div class="h-[500px] md:h-[400px] bg-gray-200 relative overflow-hidden">
+                             <img src="/image/member_joylynn.jpg" class="w-full h-full object-cover object-top" alt="Joylynn">
                              <div class="absolute top-2 right-2 bg-white/90 px-3 py-1 rounded-full text-xs font-bold text-primary shadow-sm">27 Des</div>
                         </div>
                         <div class="p-6 flex flex-col flex-grow">
@@ -1136,9 +1140,9 @@
                     </div>
 
                     <!-- 26. Sharon (28 Desember 2007) -->
-                     <div class="bg-white rounded-xl shadow-lg border border-gray-100 overflow-hidden hover:shadow-xl transition-shadow flex flex-col">
-                        <div class="h-64 bg-gray-200 relative overflow-hidden">
-                             <img src="/image/member_sharon.jpg" class="w-full h-full object-cover object-center" alt="Sharon">
+                      <div class="bg-white rounded-xl shadow-lg border border-gray-100 overflow-hidden hover:shadow-xl transition-shadow flex flex-col">
+                        <div class="h-[500px] md:h-[400px] bg-gray-200 relative overflow-hidden">
+                             <img src="/image/member_sharon.jpg" class="w-full h-full object-cover object-top" alt="Sharon">
                              <div class="absolute top-2 right-2 bg-white/90 px-3 py-1 rounded-full text-xs font-bold text-primary shadow-sm">28 Des</div>
                         </div>
                          <div class="p-6 flex flex-col flex-grow">
@@ -1154,10 +1158,10 @@
                         </div>
                     </div>
 
-                     <!-- 27. Matthew (28 Desember 2009) -->
+                      <!-- 27. Matthew (28 Desember 2009) -->
                     <div class="bg-white rounded-xl shadow-lg border border-gray-100 overflow-hidden hover:shadow-xl transition-shadow flex flex-col">
-                        <div class="h-64 bg-gray-200 relative overflow-hidden">
-                             <img src="/image/member_matthew.jpg" class="w-full h-full object-cover object-center" alt="Matthew">
+                        <div class="h-[500px] md:h-[400px] bg-gray-200 relative overflow-hidden">
+                             <img src="/image/member_matthew.jpg" class="w-full h-full object-cover object-top" alt="Matthew">
                              <div class="absolute top-2 right-2 bg-white/90 px-3 py-1 rounded-full text-xs font-bold text-primary shadow-sm">28 Des</div>
                         </div>
                          <div class="p-6 flex flex-col flex-grow">
